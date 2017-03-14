@@ -96,6 +96,28 @@ namespace MatteoAndMariaWedSln.BusinessLogic
             return result;
         }
 
+        public RSVPViewModel GetRSVPByGUID(string guid)
+        {
+            RSVPViewModel rsvpViewMode;
+            try
+            {
+                RSVPServices services = new RSVPServices();
+                List<RSVP> rsvps = services.GetRSVPs();
+                RSVP rsvp = rsvps.FirstOrDefault(x => string.Equals(x.Guid, guid, StringComparison.CurrentCultureIgnoreCase));
+                if (rsvp == null)
+                {
+                    throw new Exception(string.Format("RSVP {0} non trovato.", guid));
+                }
+                rsvpViewMode = RSVPViewModel.ToRSVPViewModel(rsvp);
+            }
+            catch (Exception exc)
+            {
+                exc.WriteToLog();
+                throw new Exception("Purtroppo il tuo RSVP non è stato trovato!");
+            }
+            return rsvpViewMode;
+        }
+
         private void SendMails(RSVP rsvp)
         {
             try
@@ -106,7 +128,8 @@ namespace MatteoAndMariaWedSln.BusinessLogic
                 string mailAdmin = mailSvc.PrepareRSVPMailToAdmins(rsvp);
                 mailSvc.SendMail("Il tuo RSVP", mailGuest, new List<string>() { rsvp.Email });
                 mailSvc.SendMail("Nuovo RSVP", mailAdmin, new List<string>() { "m.garzu@gmail.com" });
-            }catch(Exception exc)
+            }
+            catch (Exception exc)
             {
                 exc.WriteToLog();
             }

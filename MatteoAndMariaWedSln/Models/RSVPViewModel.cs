@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using WeddingServices;
 using WeddingServices.Utilities.Enums;
 
 namespace MatteoAndMariaWedSln.Models
@@ -32,6 +33,20 @@ namespace MatteoAndMariaWedSln.Models
         {
         }
         
+        public static RSVPViewModel ToRSVPViewModel(RSVP rsvp)
+        {
+            RSVPViewModel rsvpViewModel = new RSVPViewModel();
+            rsvpViewModel.Email = rsvp.Email;
+            rsvpViewModel.GUID = rsvp.Guid;
+            rsvpViewModel.IdRsvp = rsvp.IdRsvp;
+            rsvpViewModel.Number = rsvp.Number;
+            rsvpViewModel.Esito = (RSVPEnum)rsvp.Esito;
+            rsvpViewModel.DataInsert = rsvp.DataInsert;
+            rsvpViewModel.Notes = rsvp.Notes;
+            rsvpViewModel.Name = rsvp.Name;
+            return rsvpViewModel;
+        }
+
         #endregion Constructor
     }
 }

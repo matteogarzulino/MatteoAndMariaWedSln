@@ -55,6 +55,23 @@ namespace MatteoAndMariaWedSln.Controllers
             return View();
         }
 
+        [HttpGet]
+        [Route("MyRSVP")]
+        public ActionResult MyRSVP(string guid)
+        {
+            try
+            {
+                RSVPViewModel rsvp = new Services().GetRSVPByGUID(guid);
+            }
+            catch (Exception exc)
+            {
+                exc.WriteToLog();
+            }
+
+            ViewBag.Message = "Contatti di RVSP; form invio messagio mail?";
+            return RedirectToAction("RSVP");
+        }
+
         [HttpPost]
         [Route("RSVP")]
         public ActionResult RSVP(RSVPViewModel model)
@@ -80,6 +97,7 @@ namespace MatteoAndMariaWedSln.Controllers
             ViewBag.Message = "Contatti di RVSP; form invio messagio mail?";
             return View();
         }
+
         [Route("Ricevimento")]
         public ActionResult Ricevimento()
         {

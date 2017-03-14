@@ -22,32 +22,13 @@ namespace WeddingServices.Services
 
         public MailServiceResult SendMail(string subject, string message, List<string> addresses)
         {
-            try {
-
-
-                //var apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY");
-                //var client = new SendGridClient(apiKey);
-                //var from = new EmailAddress("m.garzu@gmail.com", "Matteo Garzulino");
-                //var to = new EmailAddress(addresses[0], "Prova");
-                //var msg = MailHelper.CreateSingleEmail(from, to, subject, string.Empty, message);
-                //var response = client.SendEmailAsync(msg);
-
+            try
+            {
                 string apiKey = Environment.GetEnvironmentVariable("SENDGRID_APIKEY");
                 if (string.IsNullOrEmpty(apiKey))
                 {
                     apiKey = "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";
                 }
-                //var client = new SendGridClient(apiKey);
-                //var from = new EmailAddress("m.garzu@gmail.com", "Matteo Garzu");
-                //subject = "Sending with SendGrid is Fun";
-                //foreach (string address in addresses)
-                //{
-                //    var to = new EmailAddress(address, address);
-                //    var plainTextContent = "and easy to do anywhere, even with C#";
-                //    var htmlContent = "<strong>and easy to do anywhere, even with C#</strong>";
-                //    var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
-                //    var response = await client.SendEmailAsync(msg);
-                //}
 
                 SmtpClient client = new SmtpClient();
                 client.DeliveryMethod = SmtpDeliveryMethod.Network;
@@ -61,7 +42,7 @@ namespace WeddingServices.Services
                 {
                     mail.To.Add(address);
                 }
-                mail.From = new MailAddress("m.garzu@gmail.com","Matteo Garzulino");
+                mail.From = new MailAddress("m.garzu@gmail.com", "Matteo Garzulino");
                 mail.Subject = subject;
                 mail.Body = message;
                 mail.IsBodyHtml = true;
@@ -69,7 +50,7 @@ namespace WeddingServices.Services
                 client.Send(mail);
 
             }
-            catch(Exception exc)
+            catch (Exception exc)
             {
                 exc.WriteToLog();
                 return new MailServiceResult(false, exc.Message, Utilities.Enums.ResultEnum.FAIL);
@@ -115,6 +96,11 @@ namespace WeddingServices.Services
             }
             esitoHtml += "!";
             esitoHtml += "</p>";
+
+            string rsvpDetail = "<p>";
+            rsvpDetail += "Premi <a href='http://mariaematteo.com/MyRSVP/" + rsvp.Guid + "'>qui</a> per modificare il tuo RSVP!";
+            rsvpDetail += "</p>";
+
             htmlMail += esitoHtml;
             htmlMail += salutoHtml;
             htmlMail += "<p>Matteo e Maria</p>";
