@@ -1,0 +1,48 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Matteo e Maria - La Cerimonia";
+}
+
+<!--
+<div>
+    <iframe width="600"
+            height="450"
+            frameborder="0" style="border:0"
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDlWu1Kk8k1yilT_rIoMIqKtRCVV5KuF80&q=place_id:EjxWaWEgWFggU2V0dGVtYnJlLCA0Nzg0MiBTYW4gR2lvdmFubmkgSW4gTWFyaWduYW5vIFJOLCBJdGFsaWE" allowfullscreen></iframe>
+</div>
+    -->
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-8">
+            <div class="" id="cerimoniaMap">
+                <!--ChIJ5S7dZN8fLRMR8jCc3oUU-V8-->
+                @*<iframe width="600"
+                    height="450"
+                    frameborder="0" style="border:0"
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDlWu1Kk8k1yilT_rIoMIqKtRCVV5KuF80&q=place_id:ChIJ5S7dZN8fLRMR8jCc3oUU-V8" allowfullscreen></iframe>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function initMap() {
+        var directionsDisplay = new google.maps.DirectionsRenderer;
+        var directionsService = new google.maps.DirectionsService;
+        var map = new google.maps.Map(document.getElementById('cerimoniaMap'), {
+            zoom: 14,
+            center: { lat: 43.939040, lng: 12.712142 }, /*43.939021, 12.712273**/
+            mapTypeId: 'hybrid'
+        });
+
+        directionsDisplay.preserveViewport = false;
+        directionsDisplay.setMap(map);
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAEvbgBognZOg67kNTSXf79Vr0tW2B5c4&callback=initMap">
+</script>
+

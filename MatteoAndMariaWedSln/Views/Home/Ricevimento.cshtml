@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "Matteo e Maria - Il Ricevimento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-8">
+            <p id="ricevimentoInvite">
+                <h2>Dopo la cerimonia, venite a festeggiare con noi!</h2>
+            </p>
+            <p id="ricevimentoLocation">
+                <h1 style="text-align: center;">La Taverna del Pescatore</h1>
+            </p>
+            <p class="ricevimentoAddress">Borgata Casteldimezzo, 23</p>
+            <p class="ricevimentoAddress">Casteldimezzo - Pesaro Urbino</p>
+            <p class="ricevimentoUrl">
+                <h3>
+                    <a href="http://www.tavernadelpescatore.it/" target="_blank">tavernadelpescatore.it</a>
+                </h3>
+            </p>
+        </div>
+    </div>
+    <hr />
+</div>
+<div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-8">
+        <div class="" id="ricevimentoMap">
+            <!--ChIJ5S7dZN8fLRMR8jCc3oUU-V8-->
+            @*<iframe width="600"
+                height="450"
+                frameborder="0" style="border:0"
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDlWu1Kk8k1yilT_rIoMIqKtRCVV5KuF80&q=place_id:ChIJ5S7dZN8fLRMR8jCc3oUU-V8" allowfullscreen></iframe>*@
+        </div>
+    </div>
+</div>
+
+<script>
+    function initMap() {
+        var directionsDisplay = new google.maps.DirectionsRenderer;
+        var directionsService = new google.maps.DirectionsService;
+        var map = new google.maps.Map(document.getElementById('ricevimentoMap'), {
+            zoom: 14,
+            center: { lat: 43.939040, lng: 12.712142 }, /*43.939021, 12.712273**/
+            mapTypeId: 'hybrid'
+        });
+
+        directionsDisplay.preserveViewport = false;
+        directionsDisplay.setMap(map);
+        calculateAndDisplayRoute(directionsService, directionsDisplay);
+    }
+
+    function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+        var selectedMode = "DRIVING";
+        directionsService.route({
+            origin: { lat: 43.939040, lng: 12.712142 }, //lat: 43.938996, lng: 12.712947
+            destination: { lat: 43.957795, lng: 12.806018 },
+            travelMode: google.maps.TravelMode[selectedMode]
+        }, function (response, status) {
+            if (status == 'OK') {
+                directionsDisplay.setDirections(response);
+                directionsDisplay.zoom = 25;
+            } else {
+                window.alert('Directions request failed due to ' + status);
+            }
+        });
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAEvbgBognZOg67kNTSXf79Vr0tW2B5c4&callback=initMap">
+</script>

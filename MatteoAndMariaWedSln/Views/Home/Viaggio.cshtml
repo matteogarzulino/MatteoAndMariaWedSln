@@ -1,0 +1,89 @@
+﻿@{
+    ViewBag.Title = "Matteo e Maria - Il nostro viaggio";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <p><h2>Non esiste matrimonio senza Luna di Miele e quindi...si parte!</h2></p>
+        </div>
+    </div>
+
+    <hr />
+
+    @*<div class="row divViaggio" id="divParigi">
+        <div class="parentImg">
+            <img class="viaggioImg" src="~/Content/Images/Parigi-660x350.jpg" />
+        </div>
+        <p class="viaggioDescriptionTitle">Si parte! E quale occasione migliore per non fare una notte a Parigi?!</p>
+        <p class="viaggioDestination">Parigi - 26-27 agosto 2017</p>
+        <input type="button" class="btn-default" value="prossima tappa" id="btnParigi" />
+    </div>
+    <div class="row divViaggio" id="divTahiti" style="display:none;">
+        <p class="viaggioDescriptionTitle">Dopo 26 ore di volo saremo dall'altra parte del mondo! Una notte a Tahiti, Polinesia Francese, come seconda tappa del nostro viaggio!</p>
+        <p class="viaggioDestination">Tahiti - 27-28 agosto 2017</p>
+        <input type="button" class="btn-default" value="prossima tappa" id="btnTahiti" />
+    </div>
+    <div class="row divViaggio" id="divHuanine" style="display:none;"></div>
+    <div class="row divViaggio" id="divBoraBora" style="display:none;">
+
+    </div>
+    <div class="row divViaggio" id="divRangiroa">
+        <p class="viaggioDescriptionTitle">Altro aereo, altra isola...Rangiroa! Con la sua immancabile Laguna Blu...</p>
+        <p class="viaggioDestination">Rangiroa - 04-08 settembre 2017</p>
+        <input type="button" class="btn-default" value="prossima tappa" id="btnRangiroa" />
+    </div>
+    <div class="row divViaggio" id="divFakarawa" style="display:none;">
+        <p class="viaggioDescriptionTitle">5 giorni sul catamarano Selavì, per vivere a pieno il mare polinesiano attorno ad uno degli atolli più belli!</p>
+        <p class="viaggioDestination">Fakarawa - 08-13 settembre 2017</p>
+    </div>
+    <div class="row divViaggio" id="divLA">
+        <p class="viaggioDescriptionTitle">...ci si avvia verso il ritorno, ma prima un breve break negli USA!</p>
+        <p class="viaggioDestination">Los Angeles - 14-16 settembre 2017</p>
+        <div>
+            <img />
+        </div>
+    </div>*@
+    <hr />
+    <div class="row">
+        <p><h1>Partecipate anche voi al nostro viaggio!</h1></p>
+
+        <div class="divKiaOra">
+            <p><h2>Attraverso la lista viaggi, attivata con <a href="http://www.kiaoraviaggi.it/?q=listenozze" target="_blank">KiaOra Viaggi</a></h2></p>
+            <p>Utilizzando il codice XXX-YYY</p>
+        </div>
+
+        <div class="divIban">
+            <p><h2>...oppure direttamente a noi!</h2></p>
+            <p>IT56Q0400361000000100000</p>
+        </div>
+        <hr />
+        <div>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <p>Già da ora...grazie a tutti!</p>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    $("#btnParigi").on("click", function () {
+        $("#divTahiti").toggle();
+    });
+
+    $("#btnRangiroa").on("click", function () {
+        toogleFun("#divFakarawa");
+    });
+
+    var toogleFun = function (idDiv) {
+        $(idDiv).toggle();
+    }
+
+</script>
