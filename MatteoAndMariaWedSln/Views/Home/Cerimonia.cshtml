@@ -17,18 +17,13 @@
         <div class="col-md-1">
         </div>
         <div class="col-md-8">
-            <p id="cerimoniaInvite">
-                <h2>24 agosto 2017 ore 16:30</h2>
-            </p>
-            <p id="cerimoniaLocation">
-                <h1 style="text-align: center;">Chiesa di San Pietro Apostolo</h1>
-            </p>
-            <p class="ricevimentoAddress">Via XX settembre, 10</p>
-            <p class="ricevimentoAddress">San Giovanni in Marignano - Rimini</p>
-            <p class="cerimoniaDetail">Vi aspettiamo per condividere con voi questo momento per noi unico!</p>
+            <p class="cerimoniaDetail">...per chiunque voglia condividere con noi questo giorno speciale...vi aspettiamo!</p>
+            <p class="cerimoniaInvite">24 agosto 2017 ore 16:30</p>
+            <p class="cerimoniaLocation">Chiesa di San Pietro Apostolo</p>
+            <p class="ricevimentoAddress">Via XX settembre, 10 San Giovanni in Marignano - Rimini</p>
+            @*<p class="ricevimentoAddress"></p>*@
         </div>
     </div>
-    <hr />
 </div>
 
 <div class="container-fluid">
@@ -61,7 +56,7 @@
         var marker = new google.maps.Marker({
             position: lat,
             map: map,
-            title: 'Chiesa di San Pietro Apostolo!'
+            title: 'Chiesa di San Pietro Apostolo'
         });
 
         directionsDisplay.preserveViewport = false;

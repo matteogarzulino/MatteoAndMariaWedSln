@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using log4net;
 using MatteoAndMariaWedSln.BusinessLogic;
 using MatteoAndMariaWedSln.Models;
 using MatteoAndMariaWedSln.Results;
@@ -15,6 +16,8 @@ namespace MatteoAndMariaWedSln.Controllers
 {
     public class HomeController : Controller
     {
+
+        private static readonly ILog log = LogManager.GetLogger(typeof(HomeController));
         public ActionResult Index()
         {
             return View();
@@ -56,15 +59,17 @@ namespace MatteoAndMariaWedSln.Controllers
         }
 
         [HttpGet]
-        [Route("MyRSVP")]
-        public ActionResult MyRSVP(string guid)
+        [Route("RSVPDetail")]
+        public ActionResult RSVPDetail(string guid)
         {
             try
             {
                 RSVPViewModel rsvp = new Services().GetRSVPByGUID(guid);
+                throw new Exception("Fake Exception!" + rsvp != null ? rsvp.GUID : string.Empty);
             }
             catch (Exception exc)
             {
+                log.Error("Errore!", exc);
                 exc.WriteToLog();
             }
 

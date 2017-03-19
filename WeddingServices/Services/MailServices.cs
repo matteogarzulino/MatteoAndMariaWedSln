@@ -64,6 +64,9 @@ namespace WeddingServices.Services
             htmlMail += string.Format("<p><strong>RSVP: </strong>{0}</p>", ((RSVPEnum)rsvp.Esito).GetDescription());
             htmlMail += string.Format("<p><strong>Persone: </strong>{0}</p>", rsvp.Number.ToString());
             htmlMail += string.Format("<p><strong>GUID: </strong>{0}</p>", rsvp.Guid.ToString());
+
+
+            htmlMail += GetRSVPLinkHtml(rsvp);
             return htmlMail;
         }
 
@@ -97,14 +100,20 @@ namespace WeddingServices.Services
             esitoHtml += "!";
             esitoHtml += "</p>";
 
-            string rsvpDetail = "<p>";
-            rsvpDetail += "Premi <a href='http://mariaematteo.com/MyRSVP/" + rsvp.Guid + "'>qui</a> per modificare il tuo RSVP!";
-            rsvpDetail += "</p>";
-
+            
             htmlMail += esitoHtml;
             htmlMail += salutoHtml;
+            htmlMail += GetRSVPLinkHtml(rsvp);
             htmlMail += "<p>Matteo e Maria</p>";
             return htmlMail;
+        }
+
+        private string GetRSVPLinkHtml(RSVP rsvp)
+        {
+            string rsvpLink = "<p>";
+            rsvpLink += "Premi <a href='http://mariaematteo.com/MyRSVP?Guid=" + rsvp.Guid + "'>qui</a> per modificare il RSVP!";
+            rsvpLink += "</p>";
+            return rsvpLink;
         }
     }
 }
