@@ -54,27 +54,50 @@ namespace MatteoAndMariaWedSln.Controllers
         [Route("RSVP")]
         public ActionResult RSVP()
         {
-            ViewBag.Message = "Contatti di RVSP; form invio messagio mail?";
             return View();
         }
 
         [HttpGet]
-        [Route("RSVPDetail")]
-        public ActionResult RSVPDetail(string guid)
+        [Route("MyRSVP")]
+        public ActionResult MyRSVP(string guid)
         {
             try
             {
                 RSVPViewModel rsvp = new Services().GetRSVPByGUID(guid);
-                throw new Exception("Fake Exception!" + rsvp != null ? rsvp.GUID : string.Empty);
+                return View(rsvp);
             }
             catch (Exception exc)
             {
                 log.Error("Errore!", exc);
                 exc.WriteToLog();
+                return RedirectToAction("ErrorPage", "Home", exc.ToCompleteMessage());
             }
+        }
 
-            ViewBag.Message = "Contatti di RVSP; form invio messagio mail?";
-            return RedirectToAction("RSVP");
+        [HttpPost]
+        [Route("MyRSVP")]
+        public ActionResult MyRSVP(RSVPViewModel model)
+        {
+            try
+            {
+                Services srv = new Services();
+                ServiceResult result = srv.UpdateRSVP(model);
+                if (!result.Esito && result.Exception == null)
+                {
+                    throw new Exception(result.Message);
+                }
+                else if (!result.Esito && result.Exception != null)
+                {
+                    throw result.Exception;
+                }
+                return RedirectToAction("Index");
+            }
+            catch (Exception exc)
+            {
+                log.Error("Errore!", exc);
+                exc.WriteToLog();
+                return RedirectToAction("ErrorPage", "Home", exc.ToCompleteMessage());
+            }
         }
 
         [HttpPost]
@@ -97,10 +120,10 @@ namespace MatteoAndMariaWedSln.Controllers
             catch (Exception exc)
             {
                 exc.WriteToLog();
-                return RedirectToAction("Error", "Home", exc.ToCompleteMessage());
+                return RedirectToAction("ErrorPage", "Home", exc.ToCompleteMessage());
             }
-            ViewBag.Message = "Contatti di RVSP; form invio messagio mail?";
-            return View();
+
+            return RedirectToAction("Index");
         }
 
         [Route("Ricevimento")]
@@ -109,6 +132,7 @@ namespace MatteoAndMariaWedSln.Controllers
             ViewBag.Message = "Dettagli luogo ricevimento: Ristorante, indirizzo e coordinate, Mappa, sitoweb";
             return View();
         }
+
         [Route("Guestbook")]
         public ActionResult Guestbook()
         {

@@ -7,6 +7,7 @@ using MatteoAndMariaWedSln.Results;
 using MatteoAndMariaWedWebApp.Models;
 using WeddingServices;
 using WeddingServices.Services;
+using WeddingServices.Utilities;
 using WeddingServices.Utilities.Enums;
 using WeddingServices.Utilities.Logging;
 
@@ -74,7 +75,7 @@ namespace MatteoAndMariaWedSln.BusinessLogic
                 rsvp.Number = rsvpVM.Number;
                 rsvp.DataInsert = now;
                 rsvp.DataInizio = now;
-                rsvp.DataFine = DateTime.MaxValue;
+                rsvp.DataFine = DateTimeUtilities.MaxDateTime();
                 rsvp.Notes = rsvpVM.Notes ?? string.Empty;
                 rsvp.Guid = Guid.NewGuid().ToString();
                 message = string.Empty;
@@ -96,14 +97,54 @@ namespace MatteoAndMariaWedSln.BusinessLogic
             return result;
         }
 
+        public ServiceResult UpdateRSVP(RSVPViewModel rsvpVM)
+        {
+            ServiceResult result;
+            bool esito = false;
+            string message = "Errore imprevisto";
+            try
+            {
+                string lastGUID = rsvpVM.GUID;
+                int lastId = rsvpVM.IdRsvp;
+                DateTime now = DateTime.Now;
+                RSVPServices services = new RSVPServices();
+                RSVP rsvp = new RSVP();
+                rsvp.Name = rsvpVM.Name;
+                rsvp.Email = rsvpVM.Email;
+                rsvp.Esito = (int)rsvpVM.Esito;
+                rsvp.SpecialMenu = rsvpVM.SpecialMenu;
+                rsvp.Number = rsvpVM.Number;
+                rsvp.DataInsert = now;
+                rsvp.DataInizio = now;
+                rsvp.DataFine = DateTimeUtilities.MaxDateTime();
+                rsvp.Notes = rsvpVM.Notes ?? string.Empty;
+                rsvp.Guid = Guid.NewGuid().ToString();
+                message = string.Empty;
+                services.UpdateRSVP(rsvp, lastId, lastGUID);
+
+                SendMails(rsvp);
+
+                esito = true;
+                message = "Operazione completata";
+                result = new ServiceResult(esito, message, rsvp.Guid);
+            }
+            catch (Exception exc)
+            {
+                message = exc.Message;
+                esito = false;
+                result = new ServiceResult(esito, message, exc);
+                exc.WriteToLog();
+            }
+            return result;
+        }
+
         public RSVPViewModel GetRSVPByGUID(string guid)
         {
             RSVPViewModel rsvpViewMode;
             try
             {
                 RSVPServices services = new RSVPServices();
-                List<RSVP> rsvps = services.GetRSVPs();
-                RSVP rsvp = rsvps.FirstOrDefault(x => string.Equals(x.Guid, guid, StringComparison.CurrentCultureIgnoreCase));
+                RSVP rsvp = services.GetCurrentRSVPByGUID(guid);
                 if (rsvp == null)
                 {
                     throw new Exception(string.Format("RSVP {0} non trovato.", guid));
@@ -126,8 +167,10 @@ namespace MatteoAndMariaWedSln.BusinessLogic
 
                 string mailGuest = mailSvc.PrepareRSVPMailToGuest(rsvp);
                 string mailAdmin = mailSvc.PrepareRSVPMailToAdmins(rsvp);
+
                 mailSvc.SendMail("Il tuo RSVP", mailGuest, new List<string>() { rsvp.Email });
                 mailSvc.SendMail("Nuovo RSVP", mailAdmin, new List<string>() { "m.garzu@gmail.com" });
+
             }
             catch (Exception exc)
             {

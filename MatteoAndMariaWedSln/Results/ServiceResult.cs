@@ -10,6 +10,8 @@ namespace MatteoAndMariaWedSln.Results
         public bool Esito { get; set; }
         public string Message { get; set; }
         public Exception Exception { get; set; }
+        public object Content { get; set; }
+
         public ServiceResult(bool esito, string message)
         {
             this.Esito = esito;
@@ -21,6 +23,13 @@ namespace MatteoAndMariaWedSln.Results
             this.Esito = esito;
             this.Message = message;
             this.Exception = exc;
+        }
+
+        public ServiceResult(bool esito, string message, object content)
+        {
+            this.Esito = esito;
+            this.Message = message;
+            this.Content = content;
         }
     }
 }

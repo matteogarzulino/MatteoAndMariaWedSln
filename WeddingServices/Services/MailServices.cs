@@ -100,7 +100,7 @@ namespace WeddingServices.Services
             esitoHtml += "!";
             esitoHtml += "</p>";
 
-            
+
             htmlMail += esitoHtml;
             htmlMail += salutoHtml;
             htmlMail += GetRSVPLinkHtml(rsvp);

@@ -15,7 +15,7 @@ namespace MatteoAndMariaWedSln.Models
         public string GUID { get; set; }
         [Display(Name = "Nome:")]
         public string Name { get; set; }
-        [Display(Name="Email:")]
+        [Display(Name = "Email:")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         [Display(Name = "In tutto siamo in...")]
@@ -26,13 +26,14 @@ namespace MatteoAndMariaWedSln.Models
         [Display(Name = "Menu speciale?")]
         public bool SpecialMenu { get; set; }
         [Display(Name = "Note:")]
+        [DataType(DataType.MultilineText)]
         public string Notes { get; set; }
         #endregion
         #region Constructor
         public RSVPViewModel()
         {
         }
-        
+
         public static RSVPViewModel ToRSVPViewModel(RSVP rsvp)
         {
             RSVPViewModel rsvpViewModel = new RSVPViewModel();
@@ -41,6 +42,7 @@ namespace MatteoAndMariaWedSln.Models
             rsvpViewModel.IdRsvp = rsvp.IdRsvp;
             rsvpViewModel.Number = rsvp.Number;
             rsvpViewModel.Esito = (RSVPEnum)rsvp.Esito;
+            rsvpViewModel.SpecialMenu = rsvp.SpecialMenu;
             rsvpViewModel.DataInsert = rsvp.DataInsert;
             rsvpViewModel.Notes = rsvp.Notes;
             rsvpViewModel.Name = rsvp.Name;

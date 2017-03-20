@@ -1,0 +1,83 @@
+﻿@model MatteoAndMariaWedSln.Models.RSVPViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<div>
+    <h4>RSVPViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        @*<dt>
+            @Html.DisplayNameFor(model => model.IdRsvp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdRsvp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GUID)
+        </dt>*@
+
+        <dd>
+            @Html.DisplayFor(model => model.GUID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Number)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.DataInsert)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataInsert)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SpecialMenu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SpecialMenu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")*@
+</p>

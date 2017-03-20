@@ -23,5 +23,15 @@ namespace WeddingServices.Services
         {
             return RSVPRepository.GetRSVPs(null);
         }
+
+        public RSVP GetCurrentRSVPByGUID(string guid)
+        {
+            return RSVPRepository.GetCurrentRSVPByGUID(guid);
+        }
+
+        public void UpdateRSVP(RSVP rsvp, int lastId, string lastGUID)
+        {
+            RSVPRepository.UpdateRSVP(rsvp, lastId, lastGUID);
+        }
     }
 }

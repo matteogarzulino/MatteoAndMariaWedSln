@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WeddingServices.Utilities;
 using WeddingServices.Utilities.Logging;
 
 namespace WeddingServices.Repository
@@ -26,6 +27,48 @@ namespace WeddingServices.Repository
             }
         }
 
+        public static void UpdateRSVP(RSVP rsvpEntity, int lastId, string lastGUID)
+        {
+            try
+            {
+                using (var db = new MariaMatteoWedDBEntities())
+                {
+                    DateTime maxDateTime = DateTimeUtilities.MaxDateTime();
+                    var current = db.RSVP.Where(x => x.IdRsvp == lastId && x.Guid == lastGUID && x.DataFine == maxDateTime).FirstOrDefault();
+
+                    if (current != null)
+                    {
+                        current.DataFine = rsvpEntity.DataInizio;
+                    }
+                    db.RSVP.Add(rsvpEntity);
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception exc)
+            {
+                exc.WriteToLog();
+                throw exc;
+            }
+        }
+
+        public static RSVP GetCurrentRSVPByGUID(string guid)
+        {
+            RSVP rsvp = null;
+            try
+            {
+                using (var db = new MariaMatteoWedDBEntities())
+                {
+                    DateTime maxDate = DateTimeUtilities.MaxDateTime();
+                    rsvp = db.RSVP.Where(x => x.Guid == guid && x.DataFine == maxDate).FirstOrDefault();
+                }
+            }
+            catch (Exception exc)
+            {
+                exc.WriteToLog();
+                throw exc;
+            }
+            return rsvp;
+        }
         public static List<RSVP> GetRSVPs(int? count)
         {
             List<RSVP> guestbooks = new List<RSVP>();
