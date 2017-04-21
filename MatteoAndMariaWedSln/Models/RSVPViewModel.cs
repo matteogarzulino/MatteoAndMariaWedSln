@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using WeddingServices;
+using WeddingServices.Utilities;
 using WeddingServices.Utilities.Enums;
 
 namespace MatteoAndMariaWedSln.Models
@@ -28,6 +30,9 @@ namespace MatteoAndMariaWedSln.Models
         [Display(Name = "Note:")]
         [DataType(DataType.MultilineText)]
         public string Notes { get; set; }
+        [Display(Name = "Vogliamo comparire nelle foto svolte durante la cerimonia e ricevimento")]
+        [DefaultValue(true)]
+        public bool ConsensoPrivacy { get; set; }
         #endregion
         #region Constructor
         public RSVPViewModel()
@@ -46,7 +51,25 @@ namespace MatteoAndMariaWedSln.Models
             rsvpViewModel.DataInsert = rsvp.DataInsert;
             rsvpViewModel.Notes = rsvp.Notes;
             rsvpViewModel.Name = rsvp.Name;
+            rsvpViewModel.ConsensoPrivacy = rsvp.ConsensoPrivacy;
             return rsvpViewModel;
+        }
+
+        public RSVP ToRSVPEntity(DateTime dataInsert)
+        {
+            RSVP rsvp = new RSVP();
+            rsvp.Name = this.Name;
+            rsvp.Email = this.Email;
+            rsvp.Esito = (int)this.Esito;
+            rsvp.SpecialMenu = this.SpecialMenu;
+            rsvp.Number = this.Number;
+            rsvp.DataInsert = dataInsert;
+            rsvp.DataInizio = dataInsert;
+            rsvp.DataFine = DateTimeUtilities.MaxDateTime();
+            rsvp.Notes = this.Notes ?? string.Empty;
+            rsvp.Guid = Guid.NewGuid().ToString();
+            rsvp.ConsensoPrivacy = this.ConsensoPrivacy;
+            return rsvp;
         }
 
         #endregion Constructor

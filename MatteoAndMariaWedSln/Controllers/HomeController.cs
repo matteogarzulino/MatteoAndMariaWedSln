@@ -51,80 +51,80 @@ namespace MatteoAndMariaWedSln.Controllers
             return View();
         }
 
-        [Route("RSVP")]
-        public ActionResult RSVP()
-        {
-            return View();
-        }
+        //[Route("RSVP")]
+        //public ActionResult RSVP()
+        //{
+        //    return View();
+        //}
 
-        [HttpGet]
-        [Route("MyRSVP")]
-        public ActionResult MyRSVP(string guid)
-        {
-            try
-            {
-                RSVPViewModel rsvp = new Services().GetRSVPByGUID(guid);
-                return View(rsvp);
-            }
-            catch (Exception exc)
-            {
-                log.Error("Errore!", exc);
-                exc.WriteToLog();
-                return RedirectToAction("ErrorPage", "Home", exc.ToCompleteMessage());
-            }
-        }
+        //[HttpGet]
+        //[Route("MyRSVP")]
+        //public ActionResult MyRSVP(string guid)
+        //{
+        //    try
+        //    {
+        //        RSVPViewModel rsvp = new Services().GetRSVPByGUID(guid);
+        //        return View(rsvp);
+        //    }
+        //    catch (Exception exc)
+        //    {
+        //        log.Error("Errore!", exc);
+        //        exc.WriteToLog();
+        //        return RedirectToAction("ErrorPage", "Home", exc.ToCompleteMessage());
+        //    }
+        //}
 
-        [HttpPost]
-        [Route("MyRSVP")]
-        public ActionResult MyRSVP(RSVPViewModel model)
-        {
-            try
-            {
-                Services srv = new Services();
-                ServiceResult result = srv.UpdateRSVP(model);
-                if (!result.Esito && result.Exception == null)
-                {
-                    throw new Exception(result.Message);
-                }
-                else if (!result.Esito && result.Exception != null)
-                {
-                    throw result.Exception;
-                }
-                return RedirectToAction("Index");
-            }
-            catch (Exception exc)
-            {
-                log.Error("Errore!", exc);
-                exc.WriteToLog();
-                return RedirectToAction("ErrorPage", "Home", exc.ToCompleteMessage());
-            }
-        }
+        //[HttpPost]
+        //[Route("MyRSVP")]
+        //public ActionResult MyRSVP(RSVPViewModel model)
+        //{
+        //    try
+        //    {
+        //        Services srv = new Services();
+        //        ServiceResult result = srv.UpdateRSVP(model);
+        //        if (!result.Esito && result.Exception == null)
+        //        {
+        //            throw new Exception(result.Message);
+        //        }
+        //        else if (!result.Esito && result.Exception != null)
+        //        {
+        //            throw result.Exception;
+        //        }
+        //        return RedirectToAction("Index");
+        //    }
+        //    catch (Exception exc)
+        //    {
+        //        log.Error("Errore!", exc);
+        //        exc.WriteToLog();
+        //        return RedirectToAction("ErrorPage", "Home", exc.ToCompleteMessage());
+        //    }
+        //}
 
-        [HttpPost]
-        [Route("RSVP")]
-        public ActionResult RSVP(RSVPViewModel model)
-        {
-            try
-            {
-                Services srv = new Services();
-                ServiceResult result = srv.InsertRSVP(model);
-                if (!result.Esito && result.Exception == null)
-                {
-                    throw new Exception(result.Message);
-                }
-                else if (!result.Esito && result.Exception != null)
-                {
-                    throw result.Exception;
-                }
-            }
-            catch (Exception exc)
-            {
-                exc.WriteToLog();
-                return RedirectToAction("ErrorPage", "Home", exc.ToCompleteMessage());
-            }
+        //[HttpPost]
+        //[Route("RSVP")]
+        //public ActionResult RSVP(RSVPViewModel model)
+        //{
+        //    try
+        //    {
+        //        Services srv = new Services();
+        //        ServiceResult result = srv.InsertRSVP(model);
+        //        if (!result.Esito && result.Exception == null)
+        //        {
+        //            throw new Exception(result.Message);
+        //        }
+        //        else if (!result.Esito && result.Exception != null)
+        //        {
+        //            throw result.Exception;
+        //        }
+        //    }
+        //    catch (Exception exc)
+        //    {
+        //        exc.WriteToLog();
+        //        return RedirectToAction("ErrorPage", "Home", exc.ToCompleteMessage());
+        //    }
 
-            return RedirectToAction("Index");
-        }
+        //    return RedirectToAction("Index");
+        //}
 
         [Route("Ricevimento")]
         public ActionResult Ricevimento()

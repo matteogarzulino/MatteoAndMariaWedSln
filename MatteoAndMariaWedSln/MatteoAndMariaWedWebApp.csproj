@@ -216,6 +216,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\RSVP.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -234,8 +235,8 @@
     <Content Include="Views\Home\GuestbookList.cshtml" />
     <Content Include="Views\Home\View.cshtml" />
     <Content Include="Views\Home\ErrorPage.cshtml" />
-    <Content Include="Views\Home\RSVP.cshtml" />
-    <Content Include="Views\Home\MyRSVP.cshtml" />
+    <Content Include="Views\RSVP\RSVP.cshtml" />
+    <Content Include="Views\RSVP\Edit.cshtml" />
     <Content Include="Views\RSVP\MyRSVP.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

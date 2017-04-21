@@ -67,17 +67,7 @@ namespace MatteoAndMariaWedSln.BusinessLogic
             {
                 DateTime now = DateTime.Now;
                 RSVPServices services = new RSVPServices();
-                RSVP rsvp = new RSVP();
-                rsvp.Name = rsvpVM.Name;
-                rsvp.Email = rsvpVM.Email;
-                rsvp.Esito = (int)rsvpVM.Esito;
-                rsvp.SpecialMenu = rsvpVM.SpecialMenu;
-                rsvp.Number = rsvpVM.Number;
-                rsvp.DataInsert = now;
-                rsvp.DataInizio = now;
-                rsvp.DataFine = DateTimeUtilities.MaxDateTime();
-                rsvp.Notes = rsvpVM.Notes ?? string.Empty;
-                rsvp.Guid = Guid.NewGuid().ToString();
+                RSVP rsvp = rsvpVM.ToRSVPEntity(now);
                 message = string.Empty;
                 services.InsertRSVP(rsvp);
 
@@ -108,17 +98,7 @@ namespace MatteoAndMariaWedSln.BusinessLogic
                 int lastId = rsvpVM.IdRsvp;
                 DateTime now = DateTime.Now;
                 RSVPServices services = new RSVPServices();
-                RSVP rsvp = new RSVP();
-                rsvp.Name = rsvpVM.Name;
-                rsvp.Email = rsvpVM.Email;
-                rsvp.Esito = (int)rsvpVM.Esito;
-                rsvp.SpecialMenu = rsvpVM.SpecialMenu;
-                rsvp.Number = rsvpVM.Number;
-                rsvp.DataInsert = now;
-                rsvp.DataInizio = now;
-                rsvp.DataFine = DateTimeUtilities.MaxDateTime();
-                rsvp.Notes = rsvpVM.Notes ?? string.Empty;
-                rsvp.Guid = Guid.NewGuid().ToString();
+                RSVP rsvp = rsvpVM.ToRSVPEntity(now);
                 message = string.Empty;
                 services.UpdateRSVP(rsvp, lastId, lastGUID);
 

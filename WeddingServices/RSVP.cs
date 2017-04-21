@@ -25,5 +25,6 @@ namespace WeddingServices
         public System.DateTime DataInsert { get; set; }
         public System.DateTime DataInizio { get; set; }
         public System.DateTime DataFine { get; set; }
+        public bool ConsensoPrivacy { get; set; }
     }
 }

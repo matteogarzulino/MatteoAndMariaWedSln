@@ -5,55 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@*<div class="container-fluid">
-        <div class="row">
-            <div class="col-md-4">
-            </div>
-            <div class="col-md-4">
-                <h1>RSVP</h1>
-            </div>
-            <div class="col-md-4">
-            </div>
-        </div>
-    </div>*@
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-4">
-            <p><h2>Contatteteci personalmente!</h2></p>
-        </div>
-    </div>
-</div>
-
-<div>
-    <div class="container-fluid">
-        <div class="row">
-            <div id="rsvpMatteo" class="rsvpProfileImg col-md-6">
-                @*<img class="profileImg" src="~/Content/Images/MatteoProfile.jpg" />*@
-                <img class="profileImg" src="@Url.Content("~/Content/Images/MatteoProfile.jpg")" />
-                <div class="profileContact">
-                    <ul>
-                        <li>matteo@mymail.com</li>
-                        <li>(+39)3**.37*****</li>
-                        <li>Via LoremIpsum X, 34131 Trieste (TS)</li>
-                    </ul>
-                </div>
-            </div>
-            <div id="rsvpMaria" class="rsvpProfileImg col-md-6">
-                <img class="profileImg" src="~/Content/Images/MariaProfile.jpg" />
-                <div class="profileContact">
-                    <ul>
-                        <li>maria@mymail.com</li>
-                        <li>(+39)3**.72*****</li>
-                        <li>Via LoremIpsum X, 34131 Trieste (TS)</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<hr />
-@using (Html.BeginForm("RSVP", "Home", FormMethod.Post))
+@using (Html.BeginForm("Edit", "RSVP", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 
@@ -120,33 +73,41 @@
                     });
                 }
 
-                @Html.DropDownListFor(model => model.Esito, listItemsRSVP, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.Esito, listItemsRSVP, new { @class = "form-control", @id = "cmbEsito" })
                 @Html.ValidationMessageFor(model => model.Esito, "", new { @class = "text-danger" })
             </div>
         </div>
-        <hr />
-        <p>
-            Il menù sarà a base di pesce!
-            <br />
-            Vi chiediamo di segnalarci preferenze o eventuali intolleranze!
-        </p>
+        <div id="divDettagliPresenza">
+            <div class="form-group" id="divConsensoPrivacy">
+                @Html.LabelFor(model => model.ConsensoPrivacy, htmlAttributes: new { @class = "control-label col-md-6" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.ConsensoPrivacy, new { htmlAttributes = new { @class = "checkbox-inline", @id = "chkConsensoPrivacy" } })
+                    @Html.ValidationMessageFor(model => model.ConsensoPrivacy, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <hr />
+            <p>
+                Il menù sarà a base di pesce!
+                <br />
+                Vi chiediamo di segnalarci preferenze o eventuali intolleranze!
+            </p>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.SpecialMenu, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.SpecialMenu, new { htmlAttributes = new { @class = "checkbox-inline", @id = "chkSpecialMenu" } })
-                @Html.ValidationMessageFor(model => model.SpecialMenu, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.SpecialMenu, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SpecialMenu, new { htmlAttributes = new { @class = "checkbox-inline", @id = "chkSpecialMenu" } })
+                    @Html.ValidationMessageFor(model => model.SpecialMenu, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group" id="divNotes" style="display:none;">
+                @Html.LabelFor(model => model.Notes, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Notes, new { htmlAttributes = new { @class = "form-control", @id = "txtNotes", @rows = 10 } })
+                    @Html.ValidationMessageFor(model => model.Notes, "", new { @class = "text-danger" })
+                </div>
             </div>
         </div>
-
-        <div class="form-group" id="divNotes" style="display:none;">
-            @Html.LabelFor(model => model.Notes, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Notes, new { htmlAttributes = new { @class = "form-control", @id = "txtNotes",  @rows = 10 } })
-                @Html.ValidationMessageFor(model => model.Notes, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="RSVP" class="btn btn-success" />
@@ -156,13 +117,14 @@
 
     </div>
                     }
+@section Scripts
+{
+    <script src="@Url.Content("~/Scripts/RSVP.js")"></sc ></script>
+}
+
 <script type="text/javascript">
-    $("#chkSpecialMenu").change(function () {
-        if (this.checked) {
-            $("#divNotes").show();
-        }
-        else {
-            $("#divNotes").hide();
-        }
-    })
+
+        $(document).ready(function () {
+            $("#chkConsensoPrivacy").prop('checked', true);
+        })
 </script>

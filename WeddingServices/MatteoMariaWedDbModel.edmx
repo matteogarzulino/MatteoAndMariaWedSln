@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MariaMatteoWedDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MariaMatteoWedDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Guestbook">
           <Key>
             <PropertyRef Name="IdGuestbook" />
@@ -34,13 +34,13 @@
           <Property Name="DataInsert" Type="datetime" Nullable="false" />
           <Property Name="DataInizio" Type="datetime" Nullable="false" />
           <Property Name="DataFine" Type="datetime" Nullable="false" />
+          <Property Name="ConsensoPrivacy" Type="bit" Nullable="false" />
         </EntityType>
         <EntityContainer Name="MariaMatteoWedDBModelStoreContainer">
           <EntitySet Name="Guestbook" EntityType="Self.Guestbook" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RSVP" EntityType="Self.RSVP" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MariaMatteoWedDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -73,6 +73,7 @@
           <Property Name="DataInsert" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="DataInizio" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="DataFine" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ConsensoPrivacy" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityContainer Name="MariaMatteoWedDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Guestbook" EntityType="Self.Guestbook" />
@@ -100,6 +101,7 @@
           <EntitySetMapping Name="RSVP">
             <EntityTypeMapping TypeName="MariaMatteoWedDBModel.RSVP">
               <MappingFragment StoreEntitySet="RSVP">
+                <ScalarProperty Name="ConsensoPrivacy" ColumnName="ConsensoPrivacy" />
                 <ScalarProperty Name="IdRsvp" ColumnName="IdRsvp" />
                 <ScalarProperty Name="Guid" ColumnName="Guid" />
                 <ScalarProperty Name="Email" ColumnName="Email" />

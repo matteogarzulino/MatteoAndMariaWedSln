@@ -111,7 +111,7 @@ namespace WeddingServices.Services
         private string GetRSVPLinkHtml(RSVP rsvp)
         {
             string rsvpLink = "<p>";
-            rsvpLink += "Premi <a href='http://mariaematteo.com/MyRSVP?Guid=" + rsvp.Guid + "'>qui</a> per modificare il RSVP!";
+            rsvpLink += "Premi <a href='http://mariaematteo.com/RSVP/MyRSVP?Guid=" + rsvp.Guid + "'>qui</a> per modificare il RSVP!";
             rsvpLink += "</p>";
             return rsvpLink;
         }
