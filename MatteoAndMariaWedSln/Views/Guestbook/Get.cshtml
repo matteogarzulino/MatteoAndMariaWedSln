@@ -1,0 +1,33 @@
+﻿@model IEnumerable<MatteoAndMariaWedWebApp.Models.GuestbookViewModel>
+
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Guestname)*@
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.GuestbookContent)*@
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Guestname)
+                <br />
+                <p>
+                    @Html.DisplayFor(modelItem => item.InsertDate)
+                </p>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GuestbookContent)
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div>
+    <h2>@Html.ActionLink("Lasciateci il vostro saluto!", "New")</h2>
+</div>

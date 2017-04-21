@@ -4,6 +4,8 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WeddingServices;
+using WeddingServices.Utilities;
 
 namespace MatteoAndMariaWedWebApp.Models
 {
@@ -19,8 +21,10 @@ namespace MatteoAndMariaWedWebApp.Models
         [DataType(DataType.MultilineText)]
         [Display(Name = "Messaggio:")]
         public string GuestbookContent { get; set; }
-        
+
         public DateTime InsertDate { get; set; }
+        public DateTime DataInizio { get; set; }
+        public DateTime DataFine { get; set; }
         #endregion Properties
 
         #region Constructor
@@ -29,5 +33,32 @@ namespace MatteoAndMariaWedWebApp.Models
 
         }
         #endregion Constructor
+
+        #region Factory
+        public static GuestbookViewModel GetViewModel(Guestbook guestbook)
+        {
+            GuestbookViewModel guestbookVM = new GuestbookViewModel();
+            guestbookVM.IdGuestbook = guestbook.IdGuestbook;
+            guestbookVM.Guestname = guestbook.Guestname;
+            guestbookVM.GuestbookContent = guestbook.Message;
+            guestbookVM.InsertDate = guestbook.DataInsert;
+            guestbookVM.DataInizio = guestbook.DataInizio;
+            guestbookVM.DataFine = guestbook.DataFine;
+            return guestbookVM;
+        }
+        #endregion Factory
+
+        #region public
+        public Guestbook ToGuestbookEntity(DateTime now)
+        {
+            Guestbook guestBook = new Guestbook();
+            guestBook.Guestname = this.Guestname;
+            guestBook.Message = this.GuestbookContent;
+            guestBook.DataInsert = now;
+            guestBook.DataInizio = now;
+            guestBook.DataFine = DateTimeUtilities.MaxDateTime();
+            return guestBook;
+        }
+        #endregion public
     }
 }

@@ -1,16 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Routing;
 using log4net;
 using MatteoAndMariaWedSln.BusinessLogic;
-using MatteoAndMariaWedSln.Models;
-using MatteoAndMariaWedSln.Results;
-using MatteoAndMariaWedWebApp.Models;
-using WeddingServices.Utilities;
-using WeddingServices.Utilities.Logging;
 
 namespace MatteoAndMariaWedSln.Controllers
 {
@@ -50,82 +41,7 @@ namespace MatteoAndMariaWedSln.Controllers
             ViewBag.Message = "Dettagli luogo cerimonia: Chiesa, indirizzo e coordinate, Mappa";
             return View();
         }
-
-        //[Route("RSVP")]
-        //public ActionResult RSVP()
-        //{
-        //    return View();
-        //}
-
-        //[HttpGet]
-        //[Route("MyRSVP")]
-        //public ActionResult MyRSVP(string guid)
-        //{
-        //    try
-        //    {
-        //        RSVPViewModel rsvp = new Services().GetRSVPByGUID(guid);
-        //        return View(rsvp);
-        //    }
-        //    catch (Exception exc)
-        //    {
-        //        log.Error("Errore!", exc);
-        //        exc.WriteToLog();
-        //        return RedirectToAction("ErrorPage", "Home", exc.ToCompleteMessage());
-        //    }
-        //}
-
-        //[HttpPost]
-        //[Route("MyRSVP")]
-        //public ActionResult MyRSVP(RSVPViewModel model)
-        //{
-        //    try
-        //    {
-        //        Services srv = new Services();
-        //        ServiceResult result = srv.UpdateRSVP(model);
-        //        if (!result.Esito && result.Exception == null)
-        //        {
-        //            throw new Exception(result.Message);
-        //        }
-        //        else if (!result.Esito && result.Exception != null)
-        //        {
-        //            throw result.Exception;
-        //        }
-        //        return RedirectToAction("Index");
-        //    }
-        //    catch (Exception exc)
-        //    {
-        //        log.Error("Errore!", exc);
-        //        exc.WriteToLog();
-        //        return RedirectToAction("ErrorPage", "Home", exc.ToCompleteMessage());
-        //    }
-        //}
-
-        //[HttpPost]
-        //[Route("RSVP")]
-        //public ActionResult RSVP(RSVPViewModel model)
-        //{
-        //    try
-        //    {
-        //        Services srv = new Services();
-        //        ServiceResult result = srv.InsertRSVP(model);
-        //        if (!result.Esito && result.Exception == null)
-        //        {
-        //            throw new Exception(result.Message);
-        //        }
-        //        else if (!result.Esito && result.Exception != null)
-        //        {
-        //            throw result.Exception;
-        //        }
-        //    }
-        //    catch (Exception exc)
-        //    {
-        //        exc.WriteToLog();
-        //        return RedirectToAction("ErrorPage", "Home", exc.ToCompleteMessage());
-        //    }
-
-        //    return RedirectToAction("Index");
-        //}
-
+        
         [Route("Ricevimento")]
         public ActionResult Ricevimento()
         {
@@ -139,31 +55,7 @@ namespace MatteoAndMariaWedSln.Controllers
             ViewBag.Message = "Contatti di RVSP; form invio messagio mail?";
             return View();
         }
-        [HttpPost]
-        [Route("Guestbook")]
-        public ActionResult Guestbook(GuestbookViewModel model)
-        {
-            try
-            {
-                Services bl = new Services();
-                ServiceResult result = bl.InsertGuestbook(model);
-                if (!result.Esito && result.Exception == null)
-                {
-                    throw new Exception(result.Message);
-                }
-                else if (!result.Esito && result.Exception != null)
-                {
-                    throw result.Exception;
-                }
-            }
-            catch (Exception exc)
-            {
-                exc.WriteToLog();
-                return RedirectToAction("ErrorPage", "Home", new { errMsg = exc.ToCompleteMessage() });
-            }
-            return RedirectToAction("Guestbook");
-        }
-
+        
         [HttpGet]
         [Route("GuestbookList")]
         public ActionResult GuestbookList()

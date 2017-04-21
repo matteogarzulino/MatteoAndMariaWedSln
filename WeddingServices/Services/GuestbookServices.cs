@@ -10,7 +10,7 @@ namespace WeddingServices.Services
             GuestbookRepository.InsertGuestbook(guestBook);
         }
 
-        public List<Guestbook> TakeGuestbooks(int numGuestbooks)
+        public List<Guestbook> TakeGuestbooks(int? numGuestbooks)
         {
             return GuestbookRepository.GetGuestbooks(numGuestbooks);
         }

@@ -23,13 +23,9 @@ namespace MatteoAndMariaWedSln.BusinessLogic
             try
             {
                 GuestbookServices services = new GuestbookServices();
-                Guestbook guestBook = new Guestbook();
-                guestBook.Guestname = guestbookVM.Guestname;
-                guestBook.Message = guestbookVM.GuestbookContent;
-                guestBook.DataInsert = DateTime.Now;
                 esito = true;
                 message = string.Empty;
-                services.InsertGuestbook(guestBook);
+                services.InsertGuestbook(guestbookVM.ToGuestbookEntity(DateTime.Now));
                 result = new ServiceResult(esito, message);
             }
             catch (Exception exc)
@@ -42,14 +38,17 @@ namespace MatteoAndMariaWedSln.BusinessLogic
             return result;
         }
 
-        public List<GuestbookViewModel> TakeGuestbook()
+        public List<GuestbookViewModel> TakeGuestbook(int? numGuests = null)
         {
-            int numGuests = 10;
             List<GuestbookViewModel> guestBooksVM = new List<GuestbookViewModel>();
             try
             {
                 GuestbookServices services = new GuestbookServices();
                 List<Guestbook> guestBooks = services.TakeGuestbooks(numGuests);
+                if (guestBooks.Any())
+                {
+                    guestBooksVM = guestBooks.Select(x => GuestbookViewModel.GetViewModel(x)).ToList();
+                }
             }
             catch (Exception exc)
             {

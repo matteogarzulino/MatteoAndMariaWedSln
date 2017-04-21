@@ -154,6 +154,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BusinessLogic\Services.cs" />
+    <Compile Include="Controllers\GuestbookController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RSVPController.cs" />
     <Compile Include="Global.asax.cs">
@@ -238,6 +239,8 @@
     <Content Include="Views\RSVP\RSVP.cshtml" />
     <Content Include="Views\RSVP\Edit.cshtml" />
     <Content Include="Views\RSVP\MyRSVP.cshtml" />
+    <Content Include="Views\Guestbook\Get.cshtml" />
+    <Content Include="Views\Guestbook\New.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
