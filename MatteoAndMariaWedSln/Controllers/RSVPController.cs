@@ -94,7 +94,7 @@ namespace MatteoAndMariaWedSln.Controllers
                 {
                     throw result.Exception;
                 }
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
             catch (Exception exc)
             {

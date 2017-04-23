@@ -20,9 +20,9 @@
                 @Html.DisplayNameFor(model => model.GUID)
             </dt>*@
 
-        <dd>
-            @Html.DisplayFor(model => model.GUID)
-        </dd>
+        @*<dd>
+                @Html.DisplayFor(model => model.GUID)
+            </dd>*@
 
         <dt>
             @Html.DisplayNameFor(model => model.Name)
@@ -47,15 +47,6 @@
         <dd>
             @Html.DisplayFor(model => model.Number)
         </dd>
-
-        @*<dt>
-                @Html.DisplayNameFor(model => model.DataInsert)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.DataInsert)
-            </dd>*@
-
         <dt>
             @Html.DisplayNameFor(model => model.SpecialMenu)
         </dt>
@@ -63,7 +54,13 @@
         <dd>
             @Html.DisplayFor(model => model.SpecialMenu)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ConsensoPrivacy)
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.ConsensoPrivacy)
+        </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Notes)
         </dt>
@@ -77,7 +74,7 @@
 
 <div class="form-group">
     <div class="col-md-offset-2 col-md-10">
-        @Html.ActionLink("Modifica", "Edit", new { guid = Model.GUID }, new { @class = "btn-warning" })
+        @Html.ActionLink("Modifica", "Edit", new { guid = Model.GUID }, new { @class = "btn btn-warning" })
     </div>
 </div>
 

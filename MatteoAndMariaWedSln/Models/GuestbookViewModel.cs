@@ -14,14 +14,14 @@ namespace MatteoAndMariaWedWebApp.Models
         #region Properties
         public int IdGuestbook { get; set; }
         [Required]
-        [Display(Name = "Il tuo nome:")]
+        [Display(Name = "Il tuo nome")]
         public string Guestname { get; set; }
 
         [Required]
         [DataType(DataType.MultilineText)]
-        [Display(Name = "Messaggio:")]
+        [Display(Name = "Messaggio")]
         public string GuestbookContent { get; set; }
-
+        [DisplayFormat(DataFormatString = "{0:dd MMM yyyy}")]
         public DateTime InsertDate { get; set; }
         public DateTime DataInizio { get; set; }
         public DateTime DataFine { get; set; }

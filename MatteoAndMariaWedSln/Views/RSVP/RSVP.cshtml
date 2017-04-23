@@ -8,7 +8,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-4">
-            <p><h2>Contatteteci personalmente!</h2></p>
+            <p><h2>Contatteteci...</h2></p>
         </div>
     </div>
 </div>
@@ -47,7 +47,7 @@
 
     <div class="form-horizontal">
         <p>
-            <h2>...oppure compilate questo modulo!</h2>
+            <h2>...oppure compilate l'RSVP!</h2>
         </p>
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(m => m.IdRsvp)
@@ -144,7 +144,10 @@
             </div>
         </div>
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
+            <div class="col-md-8">
+            </div>
+            <div class="col-md-2">
+                @*<div class="col-md-offset-2 col-md-10">*@
                 <input type="submit" value="RSVP" class="btn btn-success" />
             </div>
         </div>
@@ -154,12 +157,12 @@
                     }
 @section Scripts
 {
-    <script src="@Url.Content("~/Scripts/RSVP.js")"></sc></script>
+    <script src="@Url.Content("~/Scripts/RSVP.js")"></sc ></script>
 }
 
 <script type="text/javascript">
 
-    $(document).ready(function () {
-        $("#chkConsensoPrivacy").prop('checked', true);
-    })
+        $(document).ready(function () {
+            $("#chkConsensoPrivacy").prop('checked', true);
+        })
 </script>

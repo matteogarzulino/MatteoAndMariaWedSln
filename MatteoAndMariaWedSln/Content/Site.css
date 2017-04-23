@@ -187,3 +187,14 @@ textarea {
     text-align: center;
     font-style: italic;
 }
+
+#idGuestbookTable {
+    margin-top: 30px;
+    border-color: goldenrod;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 50%;
+    border-bottom-style: none;
+    border-left-style: none;
+    border-right-style: none;
+}
