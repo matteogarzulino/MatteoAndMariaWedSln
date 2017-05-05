@@ -1,0 +1,157 @@
+﻿@model MatteoAndMariaWedSln.Models.RSVPViewModel
+
+@*@{
+        ViewBag.Title = "RSVP";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }*@
+
+<div class="container-fluid">
+    <div class="row sectionContent">
+        <h2>Ci sarai? Faccelo sapere!</h2>
+        <div id="rsvpMatteo" class="rsvpProfileImg col-md-6">
+            <img src="~/Content/Images/MatteoProfile_2_small.jpg" alt="Matteo" class="profileImg">
+            <div class="profileContact">
+                <ul>
+                    <li>matteo@mymail.com</li>
+                    <li>(+39)3**.37*****</li>
+                    <li>Via LoremIpsum X, 34131 Trieste (TS)</li>
+                </ul>
+            </div>
+        </div>
+        <div id="rsvpMaria" class="rsvpProfileImg col-md-6">
+            <img class="profileImg" src="~/Content/Images/MariaProfile_3_small.jpg" />
+            <div class="profileContact">
+                <ul>
+                    <li>maria@mymail.com</li>
+                    <li>(+39)3**.72*****</li>
+                    <li>Via LoremIpsum X, 34131 Trieste (TS)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+    @using (Html.BeginForm("RSVP", "RSVP", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <p>
+                <h2>...oppure compilate l'RSVP!</h2>
+            </p>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(m => m.IdRsvp)
+            @Html.HiddenFor(m => m.GUID)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Number, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @{
+                        List<SelectListItem> listItemsGuestNumbers = new List<SelectListItem>();
+
+                        for (int i = 1; i <= 10; i++)
+                        {
+                            listItemsGuestNumbers.Add(new SelectListItem
+                            {
+                                Text = i.ToString(),
+                                Value = i.ToString()
+                            });
+                        }
+                    }
+
+                    @Html.DropDownListFor(model => model.Number, listItemsGuestNumbers, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Number, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Esito, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @{
+                        List<SelectListItem> listItemsRSVP = new List<SelectListItem>();
+                        listItemsRSVP.Add(new SelectListItem
+                        {
+                            Text = "Certo!",
+                            Value = WeddingServices.Utilities.Enums.RSVPEnum.PRESENTE.ToString()
+                        });
+                        listItemsRSVP.Add(new SelectListItem
+                        {
+                            Text = "Purtroppo non ci sarò!",
+                            Value = WeddingServices.Utilities.Enums.RSVPEnum.ASSENTE.ToString()
+                        });
+                    }
+
+                    @Html.DropDownListFor(model => model.Esito, listItemsRSVP, new { @class = "form-control", @id = "cmbEsito" })
+                    @Html.ValidationMessageFor(model => model.Esito, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div id="divDettagliPresenza">
+                <div class="form-group" id="divConsensoPrivacy">
+                    @Html.LabelFor(model => model.ConsensoPrivacy, htmlAttributes: new { @class = "control-label col-md-6" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.ConsensoPrivacy, new { htmlAttributes = new { @class = "checkbox-inline", @id = "chkConsensoPrivacy" } })
+                        @Html.ValidationMessageFor(model => model.ConsensoPrivacy, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <hr />
+                <p>
+                    Il menù sarà a base di pesce!
+                    <br />
+                    Vi chiediamo di segnalarci preferenze o eventuali intolleranze!
+                </p>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SpecialMenu, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SpecialMenu, new { htmlAttributes = new { @class = "checkbox-inline", @id = "chkSpecialMenu" } })
+                        @Html.ValidationMessageFor(model => model.SpecialMenu, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group" id="divNotes" style="display:none;">
+                    @Html.LabelFor(model => model.Notes, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Notes, new { htmlAttributes = new { @class = "form-control", @id = "txtNotes", @rows = 10 } })
+                        @Html.ValidationMessageFor(model => model.Notes, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-8">
+                </div>
+                <div class="col-md-2">
+
+                    <input type="submit" value="RSVP" class="btn btn-success" />
+                </div>
+            </div>
+        </div>
+                        }
+</div>
+@section Scripts
+{
+    <script src="@Url.Content("~/Scripts/RSVP.js")"></sc ></script>
+}
+
+<script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#chkConsensoPrivacy").prop('checked', true);
+        })
+</script>

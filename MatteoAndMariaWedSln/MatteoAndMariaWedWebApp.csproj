@@ -276,8 +276,8 @@
     <Content Include="Views\Home\Cerimonia.cshtml" />
     <Content Include="Views\Home\Ricevimento.cshtml" />
     <Content Include="Views\Home\Viaggio.cshtml" />
-    <Content Include="Views\Home\Guestbook.cshtml" />
-    <Content Include="Views\Home\GuestbookList.cshtml" />
+    <Content Include="Views\Home\Guestbook_.cshtml" />
+    <Content Include="Views\Home\GuestbookList_.cshtml" />
     <Content Include="Views\Home\View.cshtml" />
     <Content Include="Views\Home\ErrorPage.cshtml" />
     <Content Include="Views\RSVP\RSVP.cshtml" />
@@ -285,6 +285,8 @@
     <Content Include="Views\RSVP\MyRSVP.cshtml" />
     <Content Include="Views\Guestbook\Get.cshtml" />
     <Content Include="Views\Guestbook\New.cshtml" />
+    <Content Include="Views\Home\RSVP.cshtml" />
+    <Content Include="Views\Home\Guestbook.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

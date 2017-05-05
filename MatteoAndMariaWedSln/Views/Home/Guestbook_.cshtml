@@ -1,0 +1,62 @@
+﻿@model      IEnumerable<MatteoAndMariaWedWebApp.Models.GuestbookViewModel
+
+@{
+    ViewBag.Title = "Il Guestbook";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="guestbookList">
+
+</div>
+
+<div>
+    <h1>Lasciaci il tuo ricordo!</h1>
+</div>
+@     @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.HiddenFor(m => m.IdGuestbook)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Guestname, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Guestname, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Guestname, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GuestbookContent, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(modelItem => item.Guestname)
+                @Html.DisplayFor(modelItem => item.InsertDate)
+            </div>
+        </div>
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.InsertDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.InsertDate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.InsertDate, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Invia!" class="btn btn-success" />
+            </div>
+        </div>
+    </div>                 __o = Html.DisplayFor(modelItem => item.InsertDate);
+    }
+<script type="text/javascript">
+    $(document).ready(function () {
+        //$('#guestbookList').load('@Html.DisplayFor(modelItem => item.GuestbookContent)');
+    })
+</script>
+
+
+
