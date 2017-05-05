@@ -26,7 +26,9 @@ namespace MatteoAndMariaWedSln
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
-                      "~/Content/font-awesome.css"));
+                      "~/Content/font-awesome.css"
+                      //,"~/Content/style.css"
+                      ));
 
             bundles.Add(new ScriptBundle("~/bundles/RSVP").Include("~/Scripts/RSVP.js"));
         }
