@@ -12,11 +12,11 @@
     <link href="http://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Raleway:900" rel="stylesheet" type="text/css">
 </head>
-<body>
+<body data-spy="scroll" data-target=".navbar-default">
     @{
         DateTime weddingDate = new DateTime(2017, 8, 24);
     }
-    <div class="navbar navbar-inverse navbar-fixed-top menuBar">
+    <div class="navbar navbar-default navbar-inverse navbar-fixed-top menuBar">
         <div class="container">
             <div class="navbar-header menuHeader">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -28,14 +28,18 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav menuHeaderCollapse">
-                    @*<li>@Html.ActionLink("Home", "Index", "Home")</li>*@
-                    <li>@Html.ActionLink("La Cerimonia", "Cerimonia", "Home")</li>
+                    <li class="active"><a href="#home">Home</a></li>
+                    <li><a href="#Cerimonia">La Cerimonia</a></li>
+                    <li><a href="#Ricevimento">Il Ricevimento</a></li>
+                    <li><a href="#Viaggio">Il nostro viaggio</a></li>
+                    <li><a href="#RSVP">RSVP</a></li>
+                    <li><a href="#Guestbook">Guestbook</a></li>
+                    @*<li><a href="#Ringraziamenti">Ringraziamenti</a></li>*@
+                    @*<li>@Html.ActionLink("La Cerimonia", "Cerimonia", "Home")</li>
                     <li>@Html.ActionLink("Il Ricevimento", "Ricevimento", "Home")</li>
                     <li>@Html.ActionLink("Il nostro viaggio", "Viaggio", "Home")</li>
                     <li>@Html.ActionLink("RSVP", "RSVP", "RSVP")</li>
-                    @*<li>@Html.ActionLink("RSVPTest", "MyRSVP", "RSVP", new { Guid = "5d4c2236-6de5-4a7d-aee8-76462f6c5f08" }, null)</li>*@
-                    <li>@Html.ActionLink("Il Guestbook", "Get", "Guestbook")</li>
-
+                    <li>@Html.ActionLink("Il Guestbook", "Get", "Guestbook")</li>*@
                 </ul>
             </div>
         </div>

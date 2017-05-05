@@ -206,19 +206,19 @@ textarea {
 	================
 */
 
-#story {
+.sectionContent {
     position: relative;
     width: 100%;
     padding: 120 0 180 0;
 }
 
 @media (max-width: 600px) {
-    #story {
+    .sectionContent {
         padding-top: 100px;
     }
 }
 
-#story h2 {
+.sectionContent h2 {
     padding-bottom: 30px;
     font-family: 'Dancing Script', cursive;
     font-size: 85px;
@@ -259,13 +259,21 @@ textarea {
         clear: both;
     }
 
-    .content ul {
-        *zoom: 1;
-        list-style: none;
-        list-style-type: none;
-        margin: 0;
-        padding: 2em 0 6em 0;
+@media(max-width:767px) {
+    .content::after {
+        content: '';
+        clear: both;
+        margin-bottom: 100px;
     }
+}
+
+.content ul {
+    *zoom: 1;
+    list-style: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 2em 0 6em 0;
+}
 
 @media (max-width: 767px) {
     .content ul {
@@ -538,18 +546,21 @@ textarea {
             font-family: 'FontAwesome';
             content: '\f1b9';
         }
+
         .content-item:nth-child(even) .content-plane::after {
             font-family: 'FontAwesome';
             content: '\f072';
         }
+
         .content-item:nth-child(even) .content-anchor::after {
             font-family: 'FontAwesome';
             content: '\f13d';
         }
+
         .content-item:nth-child(even) .content-sun::after {
             font-family: 'FontAwesome';
             content: '\f185';
-        }  
+        }
 }
 
 .content-item:nth-child(even)::after,
@@ -586,14 +597,16 @@ textarea {
     }
 }
 
-.content-item:nth-child(even)::after {
-    left: -47px;
+@media (min-width: 767px) {
+    .content-item:nth-child(even)::after {
+        left: -47px;
+    }
 }
 
 @media (max-width: 767px) {
     .content-item:nth-child(even)::after {
-        font-family: 'FontAwesome';
-        content: '\f040';
+        /*font-family: 'FontAwesome';
+        content: '\f040';*/
         top: -50px;
         display: inline-block;
         font-style: normal;
@@ -947,7 +960,7 @@ textarea {
 .content-car,
 .content-anchor,
 .content-plane,
-.content-sun{
+.content-sun {
     padding-bottom: 60px;
 }
 
@@ -1005,4 +1018,18 @@ textarea {
     .content-end .btn {
         display: block;
     }
+}
+
+
+/**NAV BAR**/
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover {
+    color: goldenrod !important;
+    background-color: transparent !important;
+    /*-webkit-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125) !important;
+    -moz-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125) !important;
+    -ms-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125) !important;
+    -o-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125) !important;
+    box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125) !important;*/
 }

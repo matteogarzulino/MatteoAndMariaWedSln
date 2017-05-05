@@ -1,14 +1,15 @@
-﻿@{
-    ViewBag.Title = "Matteo e Maria - Il Ricevimento";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+﻿@*@{
+        ViewBag.Title = "Matteo e Maria - Il Ricevimento";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }*@
 <div class="container-fluid">
-    <div class="row">
+    <div class="row sectionContent">
+        <h2>Il Ricevimento</h2>
         <div class="col-md-1">
         </div>
         <div class="col-md-8">
             <p id="ricevimentoInvite">
-                <h2>Dopo la cerimonia, venite a festeggiare con noi!</h2>
+                <h3>Dopo la cerimonia, venite a festeggiare con noi!</h3>
             </p>
             <p id="ricevimentoLocation">
                 <h1 style="text-align: center;">La Taverna del Pescatore</h1>
@@ -39,7 +40,7 @@
 </div>
 
 <script>
-    function initMap() {
+    function initMapRicevimento() {
         var directionsDisplay = new google.maps.DirectionsRenderer;
         var directionsService = new google.maps.DirectionsService;
         var map = new google.maps.Map(document.getElementById('ricevimentoMap'), {
@@ -50,10 +51,10 @@
 
         directionsDisplay.preserveViewport = false;
         directionsDisplay.setMap(map);
-        calculateAndDisplayRoute(directionsService, directionsDisplay);
+        calculateAndDisplayRouteRicevimento(directionsService, directionsDisplay);
     }
 
-    function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+    function calculateAndDisplayRouteRicevimento(directionsService, directionsDisplay) {
         var selectedMode = "DRIVING";
         directionsService.route({
             origin: { lat: 43.939040, lng: 12.712142 }, //lat: 43.938996, lng: 12.712947
@@ -70,5 +71,5 @@
     }
 </script>
 <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAEvbgBognZOg67kNTSXf79Vr0tW2B5c4&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAEvbgBognZOg67kNTSXf79Vr0tW2B5c4&callback=initMapRicevimento">
 </script>

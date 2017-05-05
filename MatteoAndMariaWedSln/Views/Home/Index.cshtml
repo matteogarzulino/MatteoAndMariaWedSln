@@ -2,19 +2,29 @@
     ViewBag.Title = "Matteo e Maria";
 }
 
-<div class="indexWelcomeBody">
-    <h1>Benvenuti!</h1>
-    <p class="lead">Cari amici in questo sito troverete tutte le informazioni utili sul nostro Matrimonio!</p>
-</div>
+@*<div class="indexWelcomeBody">
+        <h1>Benvenuti!</h1>
+        <p class="lead">Cari amici in questo sito troverete tutte le informazioni utili sul nostro Matrimonio!</p>
+    </div>
 
-<div class="row">
-    <div class="col-md-4">
-        
-    </div>
-    @*<div class="col-md-4">
-        
-    </div>
-    <div class="col-md-4">
-        
+    <div class="row">
     </div>*@
-</div>
+
+<section id="Cerimonia">
+    @{
+        Html.RenderPartial("Cerimonia");
+    }
+
+</section>
+<section id="Ricevimento">
+
+    @{
+        Html.RenderPartial("Ricevimento");
+    }
+
+</section>
+<section id="Viaggio">
+     @{ 
+         Html.RenderPartial("Viaggio");
+     }
+</section>
