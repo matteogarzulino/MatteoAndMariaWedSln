@@ -18,7 +18,7 @@ namespace MatteoAndMariaWedSln.Controllers
             {
                 Services services = new Services();
                 List<GuestbookViewModel> guestbooks = services.TakeGuestbook();
-                return View(guestbooks);
+                return PartialView(guestbooks);
             }
             catch (Exception exc)
             {
@@ -55,7 +55,7 @@ namespace MatteoAndMariaWedSln.Controllers
                 exc.WriteToLog();
                 return RedirectToAction("ErrorPage", "Home", new { errMsg = exc.ToCompleteMessage() });
             }
-            return RedirectToAction("Get","Guestbook");
+            return Redirect(Url.RouteUrl(new { controller = "Home", action = "Index" }) + "#Guestbook");
         }
     }
 }

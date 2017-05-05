@@ -170,6 +170,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001.zip" />
     <None Include="Content\Images\MariaProfile.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -277,7 +278,7 @@
     <Content Include="Views\Home\Ricevimento.cshtml" />
     <Content Include="Views\Home\Viaggio.cshtml" />
     <Content Include="Views\Home\Guestbook_.cshtml" />
-    <Content Include="Views\Home\GuestbookList_.cshtml" />
+    <Content Include="Views\Home\GuestbookList.cshtml" />
     <Content Include="Views\Home\View.cshtml" />
     <Content Include="Views\Home\ErrorPage.cshtml" />
     <Content Include="Views\RSVP\RSVP.cshtml" />
@@ -287,6 +288,7 @@
     <Content Include="Views\Guestbook\New.cshtml" />
     <Content Include="Views\Home\RSVP.cshtml" />
     <Content Include="Views\Home\Guestbook.cshtml" />
+    <Content Include="Views\Guestbook\GuestbookList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

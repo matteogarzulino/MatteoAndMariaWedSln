@@ -44,7 +44,8 @@ namespace MatteoAndMariaWedSln.Controllers
                 return RedirectToAction("ErrorPage", "Home", exc.ToCompleteMessage());
             }
 
-            return RedirectToAction("Index", "Home");
+            //return RedirectToAction("Index", "Home");
+            return Redirect(Url.RouteUrl(new { controller = "Home", action = "Index"}) + "#RSVP");
         }
 
         [HttpGet]

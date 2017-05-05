@@ -1,4 +1,33 @@
 ﻿@model IEnumerable<MatteoAndMariaWedWebApp.Models.GuestbookViewModel>
+@*@{
+        ViewBag.Title = "Il Guestbook";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }*@
+<table class="table guestTable" id="idGuestbookTable">
+
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <strong>@Html.DisplayFor(modelItem => item.Guestname)</strong>
+                    <br />
+                    <p>
+                        @Html.DisplayFor(modelItem => item.InsertDate)
+                    </p>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GuestbookContent)
+                </td>
+            </tr>
+        }
+    }
+</table>
+
+
+
+@*@model IEnumerable<MatteoAndMariaWedWebApp.Models.GuestbookViewModel>
 @{
     ViewBag.Title = "Il Guestbook";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -45,4 +74,4 @@
             </h3>
         </div>
     </div>
-</div>
+</div>*@

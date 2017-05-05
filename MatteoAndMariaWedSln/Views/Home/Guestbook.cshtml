@@ -7,28 +7,7 @@
     <div class="row sectionContent">
         <h2>Guestbook</h2>
         <h3>Il ricordo del nostro giorno più bello è anche grazie a voi, che c'eravate e ci sarete...</h3>
-        <div class="col-md-10">
-            <table class="table guestTable" id="idGuestbookTable">
-
-                @if (Model != null)
-                {
-                    foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>
-                                <strong>@Html.DisplayFor(modelItem => item.Guestname)</strong>
-                                <br />
-                                <p>
-                                    @Html.DisplayFor(modelItem => item.InsertDate)
-                                </p>
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.GuestbookContent)
-                            </td>
-                        </tr>
-                    }
-                }
-            </table>
+        <div class="col-md-10" id="guestbookList">
         </div>
         <div class=" col-md-2"></div>
     </div>

@@ -24,12 +24,12 @@
 
 </section>
 <section id="Viaggio">
-     @{ 
-         Html.RenderPartial("Viaggio");
-     }
+    @{
+        Html.RenderPartial("Viaggio");
+    }
 </section>
 <section id="RSVP">
-    @{ 
+    @{
         Html.RenderPartial("RSVP");
     }
 </section>
@@ -39,3 +39,17 @@
         Html.RenderPartial("Guestbook");
     }
 </section>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#guestbookList').load('@Url.Action("Get", "Guestbook")');
+    });
+
+    $('.googleMap').click(function () {
+        $('.googleMap').css("pointer-events", "auto");
+    });
+
+    $(".googleMap").mouseleave(function () {
+        $('.googleMap').css("pointer-events", "none");
+    });
+</script>
