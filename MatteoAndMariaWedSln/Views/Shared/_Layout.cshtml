@@ -29,17 +29,18 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav menuHeaderCollapse">
                     <li class="active"><a href="#home">Home</a></li>
-                    <li><a href="#Cerimonia">La Cerimonia</a></li>
-                    <li><a href="#Ricevimento">Il Ricevimento</a></li>
-                    <li><a href="#Viaggio">Il nostro viaggio</a></li>
-                    <li><a href="#RSVP">RSVP</a></li>
-                    <li><a href="#Guestbook">Guestbook</a></li>
+                    <li><a href="/Home/Index#Cerimonia">La Cerimonia</a></li>
+                    <li><a href="/Home/Index#Ricevimento">Il Ricevimento</a></li>
+                    <li><a href="/Home/Index#Viaggio">Il nostro viaggio</a></li>
+                    <li><a href="/Home/Index#RSVP">RSVP</a></li>
+                    <li><a href="/Home/Index#Guestbook">Guestbook</a></li>
+                    @*<li>@Html.ActionLink("MyRSVP", "MyRSVP", "RSVP", new { Guid = "baf4b8d4-35da-4f2a-9497-10c806ef9030" }, null)</li>*@
                     @*<li><a href="#Ringraziamenti">Ringraziamenti</a></li>*@
                     @*<li>@Html.ActionLink("La Cerimonia", "Cerimonia", "Home")</li>
-                    <li>@Html.ActionLink("Il Ricevimento", "Ricevimento", "Home")</li>
-                    <li>@Html.ActionLink("Il nostro viaggio", "Viaggio", "Home")</li>
-                    <li>@Html.ActionLink("RSVP", "RSVP", "RSVP")</li>
-                    <li>@Html.ActionLink("Il Guestbook", "Get", "Guestbook")</li>*@
+                        <li>@Html.ActionLink("Il Ricevimento", "Ricevimento", "Home")</li>
+                        <li>@Html.ActionLink("Il nostro viaggio", "Viaggio", "Home")</li>
+                        <li>@Html.ActionLink("RSVP", "RSVP", "RSVP")</li>
+                        <li>@Html.ActionLink("Il Guestbook", "Get", "Guestbook")</li>*@
                 </ul>
             </div>
         </div>

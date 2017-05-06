@@ -6,75 +6,62 @@
 }
 
 
-<div>
-    <dl class="dl-horizontal">
-        @*<dt>
-                @Html.DisplayNameFor(model => model.IdRsvp)
+<div class="container-fluid">
+    <div class="row sectionContent">
+        <h2>Il tuo RSVP</h2>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.IdRsvp)
+                @Html.DisplayFor(model => model.Name)
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.GUID)
-            </dt>*@
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
 
-        @*<dd>
-                @Html.DisplayFor(model => model.GUID)
-            </dd>*@
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Number)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Number)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.SpecialMenu)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.SpecialMenu)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ConsensoPrivacy)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.ConsensoPrivacy)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Notes)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Number)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Notes)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Number)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SpecialMenu)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SpecialMenu)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ConsensoPrivacy)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ConsensoPrivacy)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Notes)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Notes)
-        </dd>
-
-    </dl>
-</div>
-
-<div class="form-group">
-    <div class="col-md-offset-2 col-md-10">
-        @Html.ActionLink("Modifica", "Edit", new { guid = Model.GUID }, new { @class = "btn btn-warning" })
+        </dl>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @Html.ActionLink("Modifica", "Edit", new { guid = Model.GUID }, new { @class = "btn btn-warning" })
+            </div>
+        </div>
     </div>
 </div>
+
 
