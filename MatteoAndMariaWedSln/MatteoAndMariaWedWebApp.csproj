@@ -170,7 +170,6 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
-    <Content Include="Content\Images\Foto sito-20170505T220113Z-001.zip" />
     <None Include="Content\Images\MariaProfile.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
