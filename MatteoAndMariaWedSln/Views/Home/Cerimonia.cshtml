@@ -1,7 +1,7 @@
 ﻿@*@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Matteo e Maria - La Cerimonia";
-}*@
+        Layout = "~/Views/Shared/_Layout.cshtml";
+        ViewBag.Title = "Matteo e Maria - La Cerimonia";
+    }*@
 
 <!--
 <div>
@@ -15,29 +15,27 @@
 <div class="container-fluid">
     <div class="row sectionContent">
         <h2>La Cerimonia</h2>
-        <div class="col-md-1">
+        <div class="col-md-2">
         </div>
         <div class="col-md-8">
+
             <p class="cerimoniaDetail">...per chiunque voglia condividere con noi questo giorno speciale...vi aspettiamo!</p>
-            <p class="cerimoniaInvite">24 agosto 2017 ore 16:30</p>
-            <p class="cerimoniaLocation">Chiesa di San Pietro Apostolo</p>
-            <p class="ricevimentoAddress">Via XX settembre, 10 San Giovanni in Marignano - Rimini</p>
-            @*<p class="ricevimentoAddress"></p>*@
+            <div class="jumbotron">
+                <p class="cerimoniaInvite">24 agosto 2017 ore 16:30</p>
+                <p class="cerimoniaLocation">Chiesa di San Pietro Apostolo</p>
+                <p class="ricevimentoAddress">Via XX settembre, 10 San Giovanni in Marignano - Rimini</p>
+                @*<p class="ricevimentoAddress"></p>*@
+            </div>
         </div>
     </div>
 </div>
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-1">
+        <div class="col-md-2">
         </div>
         <div class="col-md-8">
             <div class="googleMap" id="cerimoniaMap">
-                <!--ChIJ5S7dZN8fLRMR8jCc3oUU-V8-->
-                @*<iframe width="600"
-                    height="450"
-                    frameborder="0" style="border:0"
-                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDlWu1Kk8k1yilT_rIoMIqKtRCVV5KuF80&q=place_id:ChIJ5S7dZN8fLRMR8jCc3oUU-V8" allowfullscreen></iframe>*@
             </div>
         </div>
     </div>
@@ -49,7 +47,7 @@
         var directionsService = new google.maps.DirectionsService;
         var lat = { lat: 43.939040, lng: 12.712142 };
         var map = new google.maps.Map(document.getElementById('cerimoniaMap'), {
-            zoom: 18,
+            zoom: 19,
             center: lat, /*43.939021, 12.712273**/
             mapTypeId: 'hybrid'
         });
@@ -59,7 +57,6 @@
             map: map,
             title: 'Chiesa di San Pietro Apostolo'
         });
-
         directionsDisplay.preserveViewport = false;
         directionsDisplay.setMap(map);
     }

@@ -24,11 +24,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Matteo & Maria", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @*<a href="/Home/Index#Home"><img src="~/Content/Images/Bibart/tag.png" alt="Maria & Matteo" /></a>*@
+                @Html.ActionLink("Maria & Matteo", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav menuHeaderCollapse">
-                    <li class="active"><a href="#home">Home</a></li>
                     <li><a href="/Home/Index#Cerimonia">La Cerimonia</a></li>
                     <li><a href="/Home/Index#Ricevimento">Il Ricevimento</a></li>
                     <li><a href="/Home/Index#Viaggio">Il nostro viaggio</a></li>
@@ -53,12 +53,15 @@
     <footer>
         <div class="footerBar">
             <div class="container">
-                <div class="col-md-4"></div>
-                <div class="col-md-4">
-                    <p style="padding-left:1px; padding-right:1px;">Matteo <i class="fa fa-heart-o" aria-hidden="true"></i>  Maria</p>
-                    <p>@weddingDate.ToItalianWithDayNameString()</p>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <p style="padding-left:1px; padding-right:1px;">Matteo <i class="fa fa-heart-o" aria-hidden="true"></i>  Maria</p>
+                            <p>@weddingDate.ToItalianWithDayNameString()</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-8"></div>
             </div>
         </div>
     </footer>

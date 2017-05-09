@@ -182,12 +182,65 @@
     <Content Include="Content\Images\bg_timeline.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Images\Bibart\bibart.png" />
+    <Content Include="Content\Images\Bibart\tag.png" />
     <Content Include="Content\Images\bora_bora_matira.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Images\fakarava_selavi.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\amsterdam15.2.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\amsterdam15.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\asmterdam15.3.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\bad16.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\bruxeles16.1.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\bruxelles16.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\budapest16.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\cena16.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\copenaghen16.2.JPG" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\copenaghen16.JPG" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\croazia16.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\eolie16.10.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\eolie16.2.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\eolie16.3.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\eolie16.4.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\eolie16.5.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\eolie16.6.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\eolie16.7.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\eolie16.8.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\eolie16.9.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\eolie16.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\expo15.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\ferragosto16.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\fiuuu16.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\lipari16.1.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\lipari16.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\macchina15.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\matrimonio16.1.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\matrimonio16.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\mercatini14.1.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\mercatini14.2.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\mercatini14.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\milano16.1.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\milano16.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\party14.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\postumia16.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\santorini15.1.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\santorini15.2.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\santorini15.3.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\santorini15.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\taormina16.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\tarvisio17.2.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\tarvisio17.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\thuglife16.mp4" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\tiger16.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\trieste16.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\verona15.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\verona16.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\zoncolan16.1.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\zoncolan16.2.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\zoncolan16.jpg" />
     <Content Include="Content\Images\Huanine_LaPita.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -288,6 +341,7 @@
     <Content Include="Views\Home\RSVP.cshtml" />
     <Content Include="Views\Home\Guestbook.cshtml" />
     <Content Include="Views\Guestbook\GuestbookList.cshtml" />
+    <Content Include="Views\Home\Home.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

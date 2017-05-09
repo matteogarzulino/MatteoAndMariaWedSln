@@ -20,7 +20,7 @@ namespace MatteoAndMariaWedSln.Models
         [Display(Name = "Email:")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
-        [Display(Name = "In tutto siamo in...")]
+        [Display(Name = "Siamo in: ")]
         public int Number { get; set; }
         [Display(Name = "Ci sarai?")]
         public RSVPEnum Esito { get; set; }
@@ -30,7 +30,7 @@ namespace MatteoAndMariaWedSln.Models
         [Display(Name = "Note:")]
         [DataType(DataType.MultilineText)]
         public string Notes { get; set; }
-        [Display(Name = "Vogliamo comparire nelle foto svolte durante la cerimonia e ricevimento")]
+        [Display(Name = "Permetti le fotografie:")]
         [DefaultValue(true)]
         public bool ConsensoPrivacy { get; set; }
         #endregion
