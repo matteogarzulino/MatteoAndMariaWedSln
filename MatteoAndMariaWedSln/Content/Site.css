@@ -219,7 +219,6 @@ textarea {
 }
 
 .sectionContent h2 {
-    padding-top: 10px;
     padding-bottom: 30px;
     font-family: 'Dancing Script', cursive;
     font-size: 85px;
@@ -228,6 +227,7 @@ textarea {
     color: goldenrod;
     text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
     text-align: center;
+    margin-top: 50px;
 }
 
 .content {
@@ -689,7 +689,8 @@ textarea {
     position: absolute;
     bottom: 5px;
     right: 10px;
-    color: #bbb;
+    /*color: #bbb;*/
+    color:goldenrod;
     /*font-family: 'EB Garamond', serif;*/
     font-size: 18px;
     line-height: 23px;

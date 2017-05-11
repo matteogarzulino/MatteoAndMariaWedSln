@@ -1,4 +1,5 @@
-﻿$("#chkSpecialMenu").change(function () {
+﻿$("#SpecialMenu").change(function () {
+    debugger;
     if (this.checked) {
         $("#divNotes").show();
     }

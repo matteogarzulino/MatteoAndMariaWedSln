@@ -182,7 +182,11 @@
     <Content Include="Content\Images\bg_timeline.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Images\Bibart\background.png" />
     <Content Include="Content\Images\Bibart\bibart.png" />
+    <Content Include="Content\Images\Bibart\fiore_angolo_dx.jpg" />
+    <Content Include="Content\Images\Bibart\fiore_angolo_sx.jpg" />
+    <Content Include="Content\Images\Bibart\partecipazione.jpeg" />
     <Content Include="Content\Images\Bibart\tag.png" />
     <Content Include="Content\Images\bora_bora_matira.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
