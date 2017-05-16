@@ -13,6 +13,7 @@ namespace MatteoAndMariaWedSln.Models
     public class RSVPViewModel
     {
         #region
+        
         public int IdRsvp { get; set; }
         public string GUID { get; set; }
         [Display(Name = "Nome:")]

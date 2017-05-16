@@ -690,7 +690,7 @@ textarea {
     bottom: 5px;
     right: 10px;
     /*color: #bbb;*/
-    color:goldenrod;
+    color: goldenrod;
     /*font-family: 'EB Garamond', serif;*/
     font-size: 18px;
     line-height: 23px;
@@ -1051,9 +1051,8 @@ textarea {
 }
 
 /**CAROUSEL */
-.carousel-caption{
+.carousel-caption {
     color: goldenrod;
-
 }
 
 
@@ -1103,6 +1102,23 @@ h3 {
 }
 
 /**BODY*/
-.body-content{
-    margin-top:60px;
+.body-content {
+    margin-top: 60px;
+}
+
+
+.rsvpForm input {
+    font-family: Verdana;
+}
+
+.rsvpForm select {
+    font-family: Verdana;
+}
+
+.rsvpForm .btn {
+    font-family: inherit;
+}
+
+.submitDiv {
+    margin-top: 30px;
 }

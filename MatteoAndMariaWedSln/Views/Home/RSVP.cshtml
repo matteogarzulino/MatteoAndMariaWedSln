@@ -1,4 +1,5 @@
-﻿@model MatteoAndMariaWedSln.Models.RSVPViewModel
+﻿@using reCAPTCHA.MVC
+@model MatteoAndMariaWedSln.Models.RSVPViewModel
 
 @*@{
         ViewBag.Title = "RSVP";
@@ -35,7 +36,7 @@
     {
         @Html.AntiForgeryToken()
 
-        <div class="form-horizontal sectionContent">
+        <div class="form-horizontal sectionContent rsvpForm">
             <h2>RSVP</h2>
 
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -45,7 +46,7 @@
             <div class="form-group">
                 <div class="col-md-2">
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-10">
                     @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
                     @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
@@ -55,7 +56,7 @@
             <div class="form-group">
                 <div class="col-md-2">
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-10">
                     @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
                     @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
@@ -65,7 +66,7 @@
             <div class="form-group">
                 <div class="col-md-2">
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-10">
                     @Html.LabelFor(model => model.Number, htmlAttributes: new { @class = "control-label col-md-2" })
                     @{
                         List<SelectListItem> listItemsGuestNumbers = new List<SelectListItem>();
@@ -88,7 +89,7 @@
             <div class="form-group">
                 <div class="col-md-2">
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-10">
                     @Html.LabelFor(model => model.Esito, htmlAttributes: new { @class = "control-label col-md-2" })
                     @{
                         List<SelectListItem> listItemsRSVP = new List<SelectListItem>();
@@ -112,7 +113,7 @@
             <div class="form-group" id="divConsensoPrivacy">
                 <div class="col-md-2">
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-10">
                     @Html.LabelFor(model => model.ConsensoPrivacy, new { @class = "control-label col-md-2" })
                     @Html.EditorFor(model => model.ConsensoPrivacy, new { @class = "checkbox-inline", @id = "chkConsensoPrivacy" })
                     @*@Html.ValidationMessageFor(model => model.ConsensoPrivacy, "", new { @class = "text-danger" })*@
@@ -121,7 +122,7 @@
             <div class="row">
                 <div class="col-md-2">
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-10">
                     <p>
                         Il menù sarà a base di pesce: indica preferenze o eventuali intolleranze!
                     </p>
@@ -130,7 +131,7 @@
             <div class="form-group">
                 <div class="col-md-2">
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-10">
                     @Html.LabelFor(model => model.SpecialMenu, new { @class = "control-label col-md-2 " })
                     @Html.EditorFor(model => model.SpecialMenu, new { @class = "checkbox-inline", @id = "chkSpecialMenu" })
                     @Html.ValidationMessageFor(model => model.SpecialMenu, "", new { @class = "text-danger" })
@@ -140,13 +141,21 @@
             <div class="form-group" id="divNotes" style="display:none;">
                 <div class="col-md-2">
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-10">
                     @Html.LabelFor(model => model.Notes, htmlAttributes: new { @class = "control-label col-md-2" })
                     @Html.EditorFor(model => model.Notes, new { @class = "form-control", @id = "txtNotes", @rows = 10 })
                     @Html.ValidationMessageFor(model => model.Notes, "", new { @class = "text-danger" })
                 </div>
             </div>
             <div class="form-group">
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
+                    <div class="g-recaptcha" data-sitekey="6LdjiCEUAAAAAESD22q4RXkacyeBEO5DsQb-bM0K">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group submitDiv">
                 <div class="col-md-5">
                 </div>
                 <div class="col-md-2">
