@@ -91,6 +91,7 @@
     <Compile Include="Services\GuestbookServices.cs" />
     <Compile Include="Services\MailServices.cs" />
     <Compile Include="Services\RSVPServices.cs" />
+    <Compile Include="Services\StatsServices.cs" />
     <Compile Include="Utilities\DateTimeUtilities.cs" />
     <Compile Include="Utilities\Enums\ResultEnum.cs" />
     <Compile Include="Utilities\Enums\RSVPEnum.cs" />

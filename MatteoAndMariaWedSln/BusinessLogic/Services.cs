@@ -156,5 +156,22 @@ namespace MatteoAndMariaWedSln.BusinessLogic
                 exc.WriteToLog();
             }
         }
+
+        public StatsViewModel GetStats()
+        {
+            StatsViewModel statsViewModel;
+            try {
+                StatsServices services = new StatsServices();
+                var rsvpCountByEsito = services.CountRsvpByEsito();
+                var rsvpByEsito = services.GetRsvpGroupedByEsito();
+                statsViewModel = StatsViewModel.StatsViewModelFactory(rsvpCountByEsito, rsvpByEsito);
+            }
+            catch(Exception exc)
+            {
+                exc.WriteToLog();
+                throw new Exception("Errore nel caricamento delle statistiche");
+            }
+            return statsViewModel;
+        }
     }
 }

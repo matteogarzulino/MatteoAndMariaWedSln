@@ -1,0 +1,51 @@
+﻿@model MatteoAndMariaWedSln.Models.StatsViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="sectionContent">
+        <h2>RSVP</h2>
+        <div class="jumbotron">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>Presenti</h3>
+                </div>
+                <div class="col-md-4">
+                    <h3>@Model.RSVPCountByEsito[WeddingServices.Utilities.Enums.RSVPEnum.PRESENTE].ToString()</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>Assenti</h3>
+                </div>
+                <div class="col-md-4">
+                    <h3>@Model.RSVPCountByEsito[WeddingServices.Utilities.Enums.RSVPEnum.ASSENTE].ToString()</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sectionContent">
+        <div class="row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+                <h2>Presenze</h2>
+            </div>
+        </div>
+        @{Html.RenderPartial("StatsRSVPDetailTable", Model.RSVPByEsito[WeddingServices.Utilities.Enums.RSVPEnum.PRESENTE]); }
+
+    </div>
+    <div class="sectionContent">
+        <div class="row">
+            <div class="col-md-10">
+                <h2>Assenze</h2>
+            </div>
+            <div class="col-md-2">
+            </div>
+        </div>
+        @{Html.RenderPartial("StatsRSVPDetailTable", Model.RSVPByEsito[WeddingServices.Utilities.Enums.RSVPEnum.ASSENTE]); }
+    </div>
+</div>

@@ -199,13 +199,11 @@ textarea {
     border-right-style: none;
 }
 
-
 /*
 	================
 	[7. STORY]
 	================
 */
-
 .sectionContent {
     position: relative;
     width: 100%;
@@ -1121,4 +1119,18 @@ h3 {
 
 .submitDiv {
     margin-top: 30px;
+}
+
+
+/**STATS**/
+
+.statsTable {
+    margin-top: 30px;
+    border-color: goldenrod;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 50%;
+    border-bottom-style: none;
+    border-left-style: none;
+    border-right-style: none;
 }

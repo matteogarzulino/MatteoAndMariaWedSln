@@ -1,0 +1,58 @@
+﻿@model List<MatteoAndMariaWedSln.Models.RSVPViewModel>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table statsTable">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Numero</th>
+                    <th>Email</th>
+                    <th>Menu Speciale?</th>
+                    <th>Consenso privacy</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{int numeroTotaleAssenze = 0;
+                }
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <strong>@Html.DisplayFor(modelItem => item.Name)</strong>
+                            <br />
+                            <p>
+                                @Html.DisplayFor(modelItem => item.DataInsert)
+                            </p>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Number)
+                            @{ numeroTotaleAssenze += item.Number;}
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SpecialMenu)
+                            <p>
+                                @Html.DisplayFor(modelItem => item.Notes)
+                            </p>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ConsensoPrivacy)
+                        </td>
+                    </tr>
+                                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td><b>Totale</b></td>
+                    <td><strong>@Html.DisplayFor(x => numeroTotaleAssenze)</strong></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
