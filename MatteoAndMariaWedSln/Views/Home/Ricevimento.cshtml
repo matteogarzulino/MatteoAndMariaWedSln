@@ -9,62 +9,28 @@
         </div>
         <div class="col-md-8">
 
-            <h3>Dopo la cerimonia, venite a festeggiare con noi!</h3>
             <div class="jumbotron">
-                <p id="ricevimentoLocation">
-                    <h1 style="text-align: center;">La Taverna del Pescatore</h1>
-                </p>
-                <p class="ricevimentoAddress">Borgata Casteldimezzo, 23</p>
-                <p class="ricevimentoAddress">Casteldimezzo - Pesaro Urbino</p>
+                <p class="cerimoniaDetail">Dopo la cerimonia</p>
+                <p class="cerimoniaDetail">vi aspettiamo per festeggiare insieme</p>
+                <p class="cerimoniaDetail">presso il ristorante</p>
+                @*<p id="ricevimentoLocation">*@
+                    <h1 style="text-align:center;">Taverna del Pescatore</h1>
+                @*</p>*@
+                <p class="ricevimentoAddress">Borgata Casteldimezzo, 23 Casteldimezzo (PU)</p>
+                @*<p class="ricevimentoAddress"></p>*@
                 <p class="ricevimentoUrl">
-
                     <a href="http://www.tavernadelpescatore.it/" target="_blank">tavernadelpescatore.it</a>
-
                 </p>
             </div>
         </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-md-2">
-    </div>
-    <div class="col-md-8">
-        <div class="googleMap" id="ricevimentoMap">
+    <div class="row sectionContent">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8">
+            <div class="googleMap" id="ricevimentoMap">
+            </div>
         </div>
     </div>
+
 </div>
-
-<script>
-    function initMapRicevimento() {
-        var directionsDisplay = new google.maps.DirectionsRenderer;
-        var directionsService = new google.maps.DirectionsService;
-        var map = new google.maps.Map(document.getElementById('ricevimentoMap'), {
-            zoom: 14,
-            center: { lat: 43.939040, lng: 12.712142 }, /*43.939021, 12.712273**/
-            mapTypeId: 'hybrid'
-        });
-
-        directionsDisplay.preserveViewport = false;
-        directionsDisplay.setMap(map);
-        calculateAndDisplayRouteRicevimento(directionsService, directionsDisplay);
-    }
-
-    function calculateAndDisplayRouteRicevimento(directionsService, directionsDisplay) {
-        var selectedMode = "DRIVING";
-        directionsService.route({
-            origin: { lat: 43.939040, lng: 12.712142 }, //lat: 43.938996, lng: 12.712947
-            destination: { lat: 43.957795, lng: 12.806018 },
-            travelMode: google.maps.TravelMode[selectedMode]
-        }, function (response, status) {
-            if (status == 'OK') {
-                directionsDisplay.setDirections(response);
-                directionsDisplay.zoom = 25;
-            } else {
-                window.alert('Directions request failed due to ' + status);
-            }
-        });
-    }
-</script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAEvbgBognZOg67kNTSXf79Vr0tW2B5c4&callback=initMapRicevimento">
-</script>

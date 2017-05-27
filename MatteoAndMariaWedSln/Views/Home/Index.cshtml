@@ -3,40 +3,40 @@
 }
 <section id="Home">
     @{
-        Html.RenderPartial("Home"); 
-     }
-</section>
-
-<section id="Cerimonia">
-    @{
-        Html.RenderPartial("Cerimonia");
-    }
-
-</section>
-<section id="Ricevimento">
-
-    @{
-        Html.RenderPartial("Ricevimento");
-    }
-
-</section>
-<section id="Viaggio">
-    @{
-        Html.RenderPartial("Viaggio");
+        Html.RenderPartial("Home");
     }
 </section>
-<section id="RSVP">
-    @{
-        Html.RenderPartial("RSVP");
-    }
-</section>
+<div class="container body-content">
+    <section id="Cerimonia">
+        @{
+            Html.RenderPartial("Cerimonia");
+        }
 
-<section id="Guestbook">
-    @{
-        Html.RenderPartial("Guestbook");
-    }
-</section>
+    </section>
+    <section id="Ricevimento">
 
+        @{
+            Html.RenderPartial("Ricevimento");
+        }
+
+    </section>
+    <section id="Viaggio">
+        @{
+            Html.RenderPartial("Viaggio");
+        }
+    </section>
+    <section id="RSVP">
+        @{
+            Html.RenderPartial("RSVP");
+        }
+    </section>
+
+    <section id="Guestbook">
+        @{
+            Html.RenderPartial("Guestbook");
+        }
+    </section>
+</div>
 <script type="text/javascript">
     $(document).ready(function () {
         $('#guestbookList').load('@Url.Action("Get", "Guestbook")');
@@ -49,4 +49,61 @@
     $(".googleMap").mouseleave(function () {
         $('.googleMap').css("pointer-events", "none");
     });
+
+    function initMaps() {
+        initMapRicevimento();
+        initMapCerimonia();
+    }
+
+    function initMapCerimonia() {
+        var directionsDisplay = new google.maps.DirectionsRenderer;
+        var directionsService = new google.maps.DirectionsService;
+        var lat = { lat: 43.939040, lng: 12.712142 };
+        var map = new google.maps.Map(document.getElementById('cerimoniaMap'), {
+            zoom: 19,
+            center: lat, /*43.939021, 12.712273**/
+            mapTypeId: 'hybrid'
+        });
+
+        var marker = new google.maps.Marker({
+            position: lat,
+            map: map,
+            title: 'Chiesa di San Pietro Apostolo'
+        });
+        directionsDisplay.preserveViewport = false;
+        directionsDisplay.setMap(map);
+    }
+
+    function initMapRicevimento() {
+        var directionsDisplay = new google.maps.DirectionsRenderer;
+        var directionsService = new google.maps.DirectionsService;
+        var map = new google.maps.Map(document.getElementById('ricevimentoMap'), {
+            zoom: 14,
+            center: { lat: 43.939040, lng: 12.712142 }, /*43.939021, 12.712273**/
+            mapTypeId: 'hybrid'
+        });
+
+        directionsDisplay.preserveViewport = false;
+        directionsDisplay.setMap(map);
+        calculateAndDisplayRouteRicevimento(directionsService, directionsDisplay);
+    }
+
+    function calculateAndDisplayRouteRicevimento(directionsService, directionsDisplay) {
+        var selectedMode = "DRIVING";
+        directionsService.route({
+            origin: { lat: 43.939040, lng: 12.712142 }, //lat: 43.938996, lng: 12.712947
+            destination: { lat: 43.957795, lng: 12.806018 },
+            travelMode: google.maps.TravelMode[selectedMode]
+        }, function (response, status) {
+            if (status == 'OK') {
+                directionsDisplay.setDirections(response);
+                directionsDisplay.zoom = 25;
+            } else {
+                window.alert('Directions request failed due to ' + status);
+            }
+        });
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAEvbgBognZOg67kNTSXf79Vr0tW2B5c4&callback=initMaps">
 </script>

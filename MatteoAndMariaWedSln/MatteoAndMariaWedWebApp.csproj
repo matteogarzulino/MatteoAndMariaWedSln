@@ -309,6 +309,9 @@
     <Content Include="fonts\YummyCupcakes.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="fonts\hapole_markerpen\hapole_marker.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\mariaematteo - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\mariaematteo - Web Deploy.pubxml" />
