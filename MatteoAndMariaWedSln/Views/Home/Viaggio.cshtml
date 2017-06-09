@@ -19,7 +19,7 @@
                             <!-- begin:Venezia -->
                             <li class="content-item content-car">
                                 <h3>Venezia</h3>
-                                <div class="text">Il nostro punto di partenza...il nostro viaggio inizia da qui!</div>
+                                <p class="caption">Il nostro punto di partenza...il nostro viaggio inizia da qui!</p>
                                 <time datetime=""><i class="fa fa-calendar"></i> 26 agosto 2017</time>
                             </li>
                             <!-- end:Venezia -->
@@ -91,27 +91,51 @@
             </div>
         </div>
 
-        <div class="row">
+        @*<div class="row" style="margin-top:1%;">
             <div class="line"></div>
             <div class="col-md-2">
             </div>
             <div class="col-md-8">
-                <h3>Partecipa al nostro viaggio!</h3>
+
             </div>
-        </div>
-        <div class="row">
+        </div>*@
+        <div class="row" style="margin-top:1%;">
             <div class="col-md-2"></div>
             <div class="col-md-8">
-                <div class="jumbotron">
-                    <p>La nostra lista viaggi è aperta presso <a href="http://www.kiaoraviaggi.it/?q=listenozze" target="_blank">KiaOra Viaggi</a></p>
+                <div class="jumbotron viaggioJumbo" style="margin-top:1%;">
+                    <h3>Questo sarà il primo viaggio della nostra vita insieme...</h3>
+                    <h3>...il vostro regalo lo renderà ancor più prezioso!</h3>
+                    @*<p>La nostra lista viaggi è aperta presso <a href="http://www.kiaoraviaggi.it/?q=listenozze" target="_blank">KiaOra Viaggi</a></p>*@
                     <p>
-                        Utilizzando il codice XXX-YYY
-                        @*<button type="button" class="btn btn-info btn-sm">
-                            <span class="glyphicon glyphicon-info-sign"></span> Info
-                        </button>*@
+                        @*Utilizzando il codice XXX-YYY*@
                     </p>
+                    <div class="row">
+                        <div class="line"></div>
+                        <div class="col-md-5">
+                        </div>
+                        <div class="col-md-2">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                <span class="glyphicon glyphicon-info-sign"></span> Info
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <h2>Grazie!</h2>
+                                    <h3>Stiamo ancora definendo qualche dettaglio!</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
 </div>
+
+
+<!-- Modal -->

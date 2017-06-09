@@ -7,6 +7,12 @@
 }
 
 @font-face {
+    font-family: personality;
+    src: url( /fonts/personality.otf);
+    font-style: normal;
+}
+
+@font-face {
     font-family: YummyCupcakes;
     src: url( /fonts/YummyCupcakes.ttf);
     font-style: normal;
@@ -31,26 +37,31 @@
 }
 
 body {
-    font-family: 'YummyCupcakes';
+    font-family: 'personality';
     /*font-family: JennaSue;*/
     font-size: 22px !important;
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: rgba(198,178,151,114); /*#B29772;*/
+}
+
+.container {
+    max-width: 1470px !important;
 }
 
 /*.indexWelcomeBody > */
 h1 {
-    font-family: YummyCupcakes;
+    font-family: personality;
 }
 
 /*.indexWelcomeBody > */
 h2 {
-    font-family: YummyCupcakes;
+    font-family: personality;
 }
 
 /*.indexWelcomeBody > */
 h3 {
-    font-family: YummyCupcakes;
+    font-family: personality;
 }
 
 ul {
@@ -59,9 +70,23 @@ ul {
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-    border-color: darkgray;
+    padding-left: 0px;
+    padding-right: 0px;
+    border-color: white;
+    background-color: white;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    border-style: solid;
+    /*background: -moz-radial-gradient(white 15%, transparent 16%), -moz-radial-gradient(white 15%, transparent 16%), #B29772;
+    background: -webkit-radial-gradient(white 15%, transparent 1%), -webkit-radial-gradient(white 15%, transparent 16%), #B29772;
+    background-position: 0 0, 30px 0px;
+    -webkit-background-size: 80px 80px;
+    -moz-background-size: 80px 80px;
+    background-size: 80px 80px;
+    ba*/
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -137,9 +162,9 @@ footer {
     background-color: white;
 }
 
-.navbar-inverse .navbar-toggle.collapsed .icon-bar {
-    background-color: #07194F;
-}
+    .navbar-inverse .navbar-toggle .icon-bar.collapsed {
+        background-color: #07194F !important;
+    }
 
 .menuHome {
     color: #07194F !important;
@@ -247,12 +272,31 @@ footer {
 */
 
 #Home {
-    margin-top: 10px;
+    margin-top: 0.5%;
+}
+
+@media (max-width: 767px) {
+    #Home {
+        margin-top: 0.5px;
+    }
 }
 
 section {
     margin-bottom: 100px;
 }
+
+.viaggioJumbo {
+    color: #A0ACC5;
+}
+
+    .viaggioJumbo button {
+        font-family: 'YummyCupcakes';
+    }
+
+.rsvpContacts {
+    font-family: 'YummyCupcakes';
+}
+
 
 .sectionContent {
     position: relative;
@@ -260,22 +304,26 @@ section {
     /*padding: 120px 0px 180px 0px;*/
 }
 
-@media (max-width: 600px) {
-    .sectionContent {
-        padding-top: 100px;
-    }
-}
+    /*@media (max-width: 600px) {
+        .sectionContent {
+            padding-top: 100px;
+        }
+    }*/
 
-.sectionContent h2 {
-    padding-bottom: 30px;
-    font-family: 'Dancing Script', cursive;
-    font-size: 85px;
-    line-height: 87px;
-    font-weight: 700;
-    color: #07194F; /*goldenrod;*/
-    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
+    .sectionContent h2 {
+        padding-bottom: 30px;
+        font-family: 'personality', cursive; /*'Dancing Script', cursive;*/
+        font-size: 85px;
+        line-height: 87px;
+        font-weight: 700;
+        color: #07194F; /*goldenrod;*/
+        text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .sectionContent p {
+        font-family: YummyCupcakes;
+    }
 
 .content {
     *zoom: 1;
@@ -496,7 +544,7 @@ section {
     font-style: normal;
     speak: none;
     display: inline-block;
-    color:  #A0ACC5; /*#A0B4C8;*/ /*#f7f997;*/
+    color: #A0ACC5; /*#A0B4C8;*/ /*#f7f997;*/
 }
 
 @media (max-width: 767px) {
@@ -1126,7 +1174,7 @@ section {
 /**CAROUSEL */
 .carousel-caption {
     color: #FF8C00;
-    font-size:larger;
+    font-size: larger;
 }
 
 

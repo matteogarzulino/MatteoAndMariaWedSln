@@ -40,7 +40,9 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $('#guestbookList').load('@Url.Action("Get", "Guestbook")');
+        $("#chkConsensoPrivacy").prop('checked', true);
     });
+
 
     $('.googleMap').click(function () {
         $('.googleMap').css("pointer-events", "auto");

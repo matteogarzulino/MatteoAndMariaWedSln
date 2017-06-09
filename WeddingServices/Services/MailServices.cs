@@ -92,11 +92,11 @@ namespace WeddingServices.Services
                     esitoHtml += "Siamo molto contenti di poter festeggiare il nostro giorno con ";
                     if (pluralize)
                     {
-                        esitoHtml += "voi";
+                        esitoHtml += "voi!";
                     }
                     else
                     {
-                        esitoHtml += "te";
+                        esitoHtml += "te!";
                     }
                     salutoHtml += "Ci vediamo il <strong>24 Agosto</strong>!";
                     break;
@@ -107,7 +107,12 @@ namespace WeddingServices.Services
 
             htmlMail += esitoHtml;
             htmlMail += salutoHtml;
-            htmlMail += GetRSVPLinkHtml(rsvp);
+
+            string rsvpLink = "<p>";
+            rsvpLink += "Per modificare, rispondete pure a questa email!";
+            rsvpLink += "</p>";
+            htmlMail += rsvpLink;
+
             htmlMail += "<p>Matteo e Maria</p>";
             return htmlMail;
         }

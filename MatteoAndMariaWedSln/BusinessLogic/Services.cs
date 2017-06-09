@@ -147,8 +147,8 @@ namespace MatteoAndMariaWedSln.BusinessLogic
                 string mailGuest = mailSvc.PrepareRSVPMailToGuest(rsvp);
                 string mailAdmin = mailSvc.PrepareRSVPMailToAdmins(rsvp);
 
-                mailSvc.SendMail("Il tuo RSVP", mailGuest, new List<string>() { rsvp.Email });
-                mailSvc.SendMail("Nuovo RSVP", mailAdmin, new List<string>() { "m.garzu@gmail.com" });
+                mailSvc.SendMail(string.Format("Maria & Matteo - Grazie per il tuo RSVP!"), mailGuest, new List<string>() { rsvp.Email });
+                mailSvc.SendMail(string.Format("Nuovo RSVP da {0}", rsvp.Name), mailAdmin, new List<string>() { "m.garzu@gmail.com" });
 
             }
             catch (Exception exc)
@@ -160,13 +160,14 @@ namespace MatteoAndMariaWedSln.BusinessLogic
         public StatsViewModel GetStats()
         {
             StatsViewModel statsViewModel;
-            try {
+            try
+            {
                 StatsServices services = new StatsServices();
                 var rsvpCountByEsito = services.CountRsvpByEsito();
                 var rsvpByEsito = services.GetRsvpGroupedByEsito();
                 statsViewModel = StatsViewModel.StatsViewModelFactory(rsvpCountByEsito, rsvpByEsito);
             }
-            catch(Exception exc)
+            catch (Exception exc)
             {
                 exc.WriteToLog();
                 throw new Exception("Errore nel caricamento delle statistiche");
