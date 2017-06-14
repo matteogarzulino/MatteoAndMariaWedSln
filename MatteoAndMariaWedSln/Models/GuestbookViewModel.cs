@@ -57,6 +57,7 @@ namespace MatteoAndMariaWedWebApp.Models
             guestBook.DataInsert = now;
             guestBook.DataInizio = now;
             guestBook.DataFine = DateTimeUtilities.MaxDateTime();
+            guestBook.Visibile = false;
             return guestBook;
         }
         #endregion public

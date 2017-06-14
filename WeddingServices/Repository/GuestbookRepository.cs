@@ -18,7 +18,52 @@ namespace WeddingServices.Repository
                     db.Guestbook.Add(guestbookEntity);
                     db.SaveChanges();
                 }
-            }catch(Exception exc)
+            }
+            catch (Exception exc)
+            {
+                exc.WriteToLog();
+                throw exc;
+            }
+        }
+
+        public static Guestbook GetGuestbookById(int idGuestbook)
+        {
+            Guestbook guestbook;
+            try
+            {
+                using (var db = new MariaMatteoWedDBEntities())
+                {
+                    guestbook = db.Guestbook.Where(x => x.IdGuestbook == idGuestbook).FirstOrDefault();
+                }
+                if (guestbook == null)
+                {
+                    throw new Exception(string.Format("Guestbook non trovato. Id: {0}", idGuestbook));
+                }
+            }
+            catch (Exception exc)
+            {
+                exc.WriteToLog();
+                throw exc;
+            }
+            return guestbook;
+        }
+
+        public static void ConfirmGuestbook(int idGuestbook, bool visible)
+        {
+            try
+            {
+                using (var db = new MariaMatteoWedDBEntities())
+                {
+                    Guestbook currentGuestbook = db.Guestbook.Where(x => x.IdGuestbook == idGuestbook).FirstOrDefault();
+                    if (currentGuestbook == null)
+                    {
+                        throw new Exception(string.Format("Guestbook non trovato. Id: {0}", idGuestbook));
+                    }
+                    currentGuestbook.Visibile = visible;
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception exc)
             {
                 exc.WriteToLog();
                 throw exc;
@@ -32,19 +77,43 @@ namespace WeddingServices.Repository
             {
                 using (var db = new MariaMatteoWedDBEntities())
                 {
-                    if (count.HasValue) {
-                        guestbooks = db.Guestbook.OrderByDescending(x => x.DataInsert).Take(count.Value).ToList();
+                    if (count.HasValue)
+                    {
+                        guestbooks = db.Guestbook.Where(x=>x.Visibile).OrderByDescending(x => x.DataInsert).Take(count.Value).ToList();
                     }
                     else
                     {
-                        guestbooks = db.Guestbook.OrderByDescending(x => x.DataInsert).ToList();
+                        guestbooks = db.Guestbook.Where(x => x.Visibile).OrderByDescending(x => x.DataInsert).ToList();
                     }
                 }
-            }catch(Exception exc)
+            }
+            catch (Exception exc)
             {
                 exc.WriteToLog();
             }
             return guestbooks;
+        }
+
+        public static void UpdateGuestbook(Guestbook guestbook)
+        {
+            try
+            {
+                using (var db = new MariaMatteoWedDBEntities())
+                {
+                    Guestbook currentGuestbook = db.Guestbook.Where(x => x.IdGuestbook == guestbook.IdGuestbook).FirstOrDefault();
+                    if (guestbook == null)
+                    {
+                        throw new Exception(string.Format("Guestbook non trovato. Id: {0}", guestbook.IdGuestbook));
+                    }
+                    currentGuestbook.Visibile = guestbook.Visibile;
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception exc)
+            {
+                exc.WriteToLog();
+                throw exc;
+            }
         }
     }
 }

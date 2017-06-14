@@ -25,7 +25,9 @@ namespace MatteoAndMariaWedSln.BusinessLogic
                 GuestbookServices services = new GuestbookServices();
                 esito = true;
                 message = string.Empty;
-                services.InsertGuestbook(guestbookVM.ToGuestbookEntity(DateTime.Now));
+                Guestbook guestbook = guestbookVM.ToGuestbookEntity(DateTime.Now);
+                services.InsertGuestbook(guestbook);
+                SendGuestbookMail(guestbook);
                 result = new ServiceResult(esito, message);
             }
             catch (Exception exc)
@@ -72,6 +74,29 @@ namespace MatteoAndMariaWedSln.BusinessLogic
 
                 SendMails(rsvp);
 
+                esito = true;
+                message = "Operazione completata";
+                result = new ServiceResult(esito, message);
+            }
+            catch (Exception exc)
+            {
+                message = exc.Message;
+                esito = false;
+                result = new ServiceResult(esito, message, exc);
+                exc.WriteToLog();
+            }
+            return result;
+        }
+
+        internal ServiceResult ConfirmGuestbook(int idGuestbook, bool confirm)
+        {
+            ServiceResult result;
+            bool esito = false;
+            string message = "Errore imprevisto";
+            try
+            {
+                GuestbookServices services = new GuestbookServices();
+                services.ConfirmGuestbook(idGuestbook, confirm);
                 esito = true;
                 message = "Operazione completata";
                 result = new ServiceResult(esito, message);
@@ -150,6 +175,20 @@ namespace MatteoAndMariaWedSln.BusinessLogic
                 mailSvc.SendMail(string.Format("Maria & Matteo - Grazie per il tuo RSVP!"), mailGuest, new List<string>() { rsvp.Email });
                 mailSvc.SendMail(string.Format("Nuovo RSVP da {0}", rsvp.Name), mailAdmin, new List<string>() { "m.garzu@gmail.com" });
 
+            }
+            catch (Exception exc)
+            {
+                exc.WriteToLog();
+            }
+        }
+
+        public void SendGuestbookMail(Guestbook guestbook)
+        {
+            try
+            {
+                MailServices mailSvc = new MailServices();
+                string mailAdmin = mailSvc.PrepareGuestbookMailToAdmins(guestbook);
+                mailSvc.SendMail(string.Format("Nuovo Guestbook da {0}", guestbook.Guestname), mailAdmin, new List<string>() { "m.garzu@gmail.com" });
             }
             catch (Exception exc)
             {

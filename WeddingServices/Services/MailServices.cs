@@ -124,5 +124,17 @@ namespace WeddingServices.Services
             rsvpLink += "</p>";
             return rsvpLink;
         }
+
+        public string PrepareGuestbookMailToAdmins(Guestbook guestbook)
+        {
+            string htmlMail = string.Format("<h1>Abbiamo ricevuto un nuovo Guestbook da {0}!</h1>", guestbook.Guestname);
+            htmlMail += string.Format("<p><strong>Messaggio: </strong>{0}</p>", guestbook.Message);
+            htmlMail += "<hr>";
+            string confirmLink = "<p>";
+            confirmLink += "Premi <a href='http://mariaematteo.com/Guestbook/Confirm?idGuestbook=" + guestbook.IdGuestbook + "'>qui</a> per rendere visibile il post!";
+            confirmLink += "</p>";
+            htmlMail += confirmLink;
+            return htmlMail;
+        }
     }
 }

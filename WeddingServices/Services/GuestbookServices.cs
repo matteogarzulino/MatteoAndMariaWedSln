@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using WeddingServices.Repository;
 
 namespace WeddingServices.Services
@@ -18,6 +19,16 @@ namespace WeddingServices.Services
         public List<Guestbook> GetGuestbooks()
         {
             return GuestbookRepository.GetGuestbooks(null);
+        }
+
+        public Guestbook GetGuestbookById(int idGuestbook)
+        {
+            return GuestbookRepository.GetGuestbookById(idGuestbook);
+        }
+
+        public void ConfirmGuestbook(int idGuestbook, bool visible)
+        {
+            GuestbookRepository.ConfirmGuestbook(idGuestbook,  visible);
         }
     }
 }

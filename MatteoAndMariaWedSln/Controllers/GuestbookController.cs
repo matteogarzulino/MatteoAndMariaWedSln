@@ -57,5 +57,23 @@ namespace MatteoAndMariaWedSln.Controllers
             }
             return Redirect(Url.RouteUrl(new { controller = "Home", action = "Index" }) + "#Guestbook");
         }
+
+        public ActionResult Confirm(int idGuestbook)
+        {
+            try {
+                Services bl = new Services();
+                ServiceResult result = bl.ConfirmGuestbook(idGuestbook, true);
+                if(!result.Esito && result.Exception == null)
+                {
+                    throw new Exception(result.Message);
+                }
+            }
+            catch(Exception exc)
+            {
+                exc.WriteToLog();
+                return RedirectToAction("ErrorPage", "Home", new { errMsg = exc.ToCompleteMessage() });
+            }
+            return Redirect(Url.RouteUrl(new { controller = "Home", action = "Index" }) + "#Guestbook");
+        }
     }
 }
