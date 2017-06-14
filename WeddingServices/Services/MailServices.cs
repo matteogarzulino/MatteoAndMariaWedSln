@@ -98,7 +98,7 @@ namespace WeddingServices.Services
                     {
                         esitoHtml += "te!";
                     }
-                    salutoHtml += "Ci vediamo il <strong>24 Agosto</strong>!";
+                    salutoHtml += "Ci vediamo il <strong>24 Agosto 2017, h. 16.00</strong>!";
                     break;
             }
             esitoHtml += "!";
@@ -109,7 +109,7 @@ namespace WeddingServices.Services
             htmlMail += salutoHtml;
 
             string rsvpLink = "<p>";
-            rsvpLink += "Per modificare, rispondete pure a questa email!";
+            rsvpLink += "Per modificare, <a href='http://mariaematteo.com/#RSVP'>contattaci</a>!";
             rsvpLink += "</p>";
             htmlMail += rsvpLink;
 
