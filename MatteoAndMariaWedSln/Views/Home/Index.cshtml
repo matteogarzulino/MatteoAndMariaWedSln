@@ -36,10 +36,17 @@
             Html.RenderPartial("Guestbook");
         }
     </section>
+
+    @*<section id="Guestbook">
+        @{
+            Html.RenderPartial("Dintorni");
+        }
+    </section>*@
 </div>
 <script type="text/javascript">
     $(document).ready(function () {
         $('#guestbookList').load('@Url.Action("Get", "Guestbook")');
+        $('#carouselHome').load('@Url.Action("Carousel", "Home")');
         $("#chkConsensoPrivacy").prop('checked', true);
     });
 

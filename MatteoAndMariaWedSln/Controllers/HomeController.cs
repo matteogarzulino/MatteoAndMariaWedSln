@@ -56,6 +56,19 @@ namespace MatteoAndMariaWedSln.Controllers
             return View();
         }
         
+        public ActionResult Carousel()
+        {
+            return PartialView();
+        }
+
+        [Route("Riviera")]
+        public ActionResult Dintorni()
+        {
+            return View();
+        }
+
+
+
         [HttpGet]
         [Route("GuestbookList")]
         public ActionResult GuestbookList()
