@@ -207,8 +207,10 @@
     <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\bruxelles16.jpg" />
     <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\budapest16.jpg" />
     <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\cena16.jpg" />
-    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\copenaghen16.2.JPG" />
-    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\copenaghen16.JPG" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\copenaghen16.2.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\copenaghen16.jpg" />
     <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\croazia16.jpg" />
     <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\eolie16.10.jpg" />
     <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\eolie16.2.jpg" />
@@ -223,7 +225,9 @@
     <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\expo15.jpg" />
     <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\ferragosto16.jpg" />
     <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\fiuuu16.jpg" />
-    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\lipari16.1.jpg" />
+    <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\lipari16.1.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\lipari16.jpg" />
     <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\macchina15.jpg" />
     <Content Include="Content\Images\Foto sito-20170505T220113Z-001\Foto sito\matrimonio16.1.jpg" />
