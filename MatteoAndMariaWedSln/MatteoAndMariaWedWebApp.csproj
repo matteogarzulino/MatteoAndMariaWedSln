@@ -157,6 +157,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BusinessLogic\Services.cs" />
+    <Compile Include="Controllers\DintorniController.cs" />
     <Compile Include="Controllers\GuestbookController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RSVPController.cs" />
@@ -366,6 +367,7 @@
     <Content Include="Views\Stats\StatsRSVPDetailTable.cshtml" />
     <Content Include="Views\Home\Dintorni.cshtml" />
     <Content Include="Views\Home\Carousel.cshtml" />
+    <Content Include="Views\Dintorni\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

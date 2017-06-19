@@ -336,6 +336,28 @@ section {
         font-family: YummyCupcakes;
     }
 
+
+
+.contentDintorni {
+    *zoom: 1;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    list-style-type: none;
+    background-color: transparent;
+    -webkit-background-size: 2px auto;
+    -moz-background-size: 2px auto;
+    -ms-background-size: 2px auto;
+    -o-background-size: 2px auto;
+    background-size: 2px auto;
+    background-position: center top;
+    background-repeat: repeat-y;
+    background-attachment: initial;
+}
+
+.contentInnerList {
+    font-family: YummyCupcakes;
+}
 .content {
     *zoom: 1;
     padding: 0;
@@ -935,6 +957,38 @@ section {
         content: '\f1b9 ';
     }
 }
+
+.content-glass::after {
+    font-family: 'FontAwesome';
+    content: '\f000 ';
+    font-style: normal;
+    speak: none;
+    display: inline-block;
+    /*color: #f7f997 !important;*/
+}
+
+@media (max-width: 767px) {
+    .content-glass::after {
+        font-family: 'FontAwesome';
+        content: '\f000 ';
+    }
+}
+
+.content-staro::after {
+    font-family: 'FontAwesome';
+    content: '\f006 ';
+    font-style: normal;
+    speak: none;
+    display: inline-block;
+    /*color: #f7f997 !important;*/
+}
+
+@media (max-width: 767px) {
+    .content-staro::after {
+        font-family: 'FontAwesome';
+        content: '\f006 ';
+    }
+} 
 
 .content-plane::after {
     font-family: 'FontAwesome';
