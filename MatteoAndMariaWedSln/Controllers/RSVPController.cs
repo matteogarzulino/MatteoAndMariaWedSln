@@ -11,6 +11,7 @@ using MatteoAndMariaWedSln.Results;
 using reCAPTCHA.MVC;
 using WeddingServices.Utilities;
 using WeddingServices.Utilities.Logging;
+using System.Diagnostics;
 
 namespace MatteoAndMariaWedSln.Controllers
 {
@@ -30,6 +31,7 @@ namespace MatteoAndMariaWedSln.Controllers
         {
             try
             {
+                Trace.TraceInformation("***RSVP REQUEST***");
                 var r = Request.Params["g-recaptcha-response"];
                 // ... validate null or empty value if you want
                 // then
@@ -61,10 +63,11 @@ namespace MatteoAndMariaWedSln.Controllers
             }
             catch (Exception exc)
             {
+                Trace.TraceError("***RSVP ERROR***" );
                 exc.WriteToLog();
                 return RedirectToAction("ErrorPage", "Home", exc.ToCompleteMessage());
             }
-
+            Trace.TraceInformation("***RSVP OK***");
             //return RedirectToAction("Index", "Home");
             return Redirect(Url.RouteUrl(new { controller = "Home", action = "Index" }) + "#RSVP");
         }

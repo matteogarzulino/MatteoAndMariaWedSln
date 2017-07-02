@@ -25,23 +25,27 @@
             Html.RenderPartial("Viaggio");
         }
     </section>
+    <section id="ListaNozze">
+        @{
+            Html.RenderPartial("ListaNozze");
+        }
+    </section>
     <section id="RSVP">
         @{
             Html.RenderPartial("RSVP");
         }
     </section>
-
+    <section id="Dintorni">
+        @{
+            Html.RenderPartial("Dintorni");
+        }
+    </section>
     <section id="Guestbook">
         @{
             Html.RenderPartial("Guestbook");
         }
     </section>
 
-    @*<section id="Guestbook">
-            @{
-                Html.RenderPartial("Dintorni");
-            }
-        </section>*@
 </div>
 <script type="text/javascript">
     $(document).ready(function () {

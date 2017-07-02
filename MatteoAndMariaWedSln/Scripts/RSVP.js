@@ -13,11 +13,15 @@ $("#cmbEsito").change(function () {
     if (esitoVal == "PRESENTE") {
         $("#divConsensoPrivacy").show();
         $("#divDettagliPresenza").show();
+        $("#divSpecialMenu").show();
+        $("#divGuestsNumber").show();
         $("#chkConsensoPrivacy").prop("checked", true);
     }
     else {
         $("#divDettagliPresenza").hide();
         $("#divConsensoPrivacy").hide();
         $("#chkConsensoPrivacy").prop("checked", false);
+        $("#divSpecialMenu").hide();
+        $("#divGuestsNumber").hide();
     }
 });

@@ -66,29 +66,6 @@
                 <div class="col-md-2">
                 </div>
                 <div class="col-md-10">
-                    @Html.LabelFor(model => model.Number, htmlAttributes: new { @class = "control-label col-md-2" })
-                    @{
-                        List<SelectListItem> listItemsGuestNumbers = new List<SelectListItem>();
-
-                        for (int i = 1; i <= 10; i++)
-                        {
-                            listItemsGuestNumbers.Add(new SelectListItem
-                            {
-                                Text = i.ToString(),
-                                Value = i.ToString()
-                            });
-                        }
-                    }
-
-                    @Html.DropDownListFor(model => model.Number, listItemsGuestNumbers, new { @class = "form-control col-md-8" })
-                    @Html.ValidationMessageFor(model => model.Number, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-2">
-                </div>
-                <div class="col-md-10">
                     @Html.LabelFor(model => model.Esito, htmlAttributes: new { @class = "control-label col-md-2" })
                     @{
                         List<SelectListItem> listItemsRSVP = new List<SelectListItem>();
@@ -109,6 +86,29 @@
                 </div>
             </div>
 
+            <div class="form-group" id="divGuestsNumber">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-10">
+                    @Html.LabelFor(model => model.Number, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @{
+                        List<SelectListItem> listItemsGuestNumbers = new List<SelectListItem>();
+
+                        for (int i = 1; i <= 10; i++)
+                        {
+                            listItemsGuestNumbers.Add(new SelectListItem
+                            {
+                                Text = i.ToString(),
+                                Value = i.ToString()
+                            });
+                        }
+                    }
+
+                    @Html.DropDownListFor(model => model.Number, listItemsGuestNumbers, new { @class = "form-control col-md-8" })
+                    @Html.ValidationMessageFor(model => model.Number, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
             <div class="form-group" id="divConsensoPrivacy">
                 <div class="col-md-2">
                 </div>
@@ -118,32 +118,34 @@
                     @*@Html.ValidationMessageFor(model => model.ConsensoPrivacy, "", new { @class = "text-danger" })*@
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-2">
+            <div id="divSpecialMenu">
+                <div class="row">
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-10">
+                        <p>
+                            Il menù sarà a base di pesce: indica preferenze o eventuali intolleranze!
+                        </p>
+                    </div>
                 </div>
-                <div class="col-md-10">
-                    <p>
-                        Il menù sarà a base di pesce: indica preferenze o eventuali intolleranze!
-                    </p>
+                <div class="form-group">
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-10">
+                        @Html.LabelFor(model => model.SpecialMenu, new { @class = "control-label col-md-2 " })
+                        @Html.EditorFor(model => model.SpecialMenu, new { @class = "checkbox-inline", @id = "chkSpecialMenu" })
+                        @Html.ValidationMessageFor(model => model.SpecialMenu, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-2">
-                </div>
-                <div class="col-md-10">
-                    @Html.LabelFor(model => model.SpecialMenu, new { @class = "control-label col-md-2 " })
-                    @Html.EditorFor(model => model.SpecialMenu, new { @class = "checkbox-inline", @id = "chkSpecialMenu" })
-                    @Html.ValidationMessageFor(model => model.SpecialMenu, "", new { @class = "text-danger" })
-                </div>
-            </div>
 
-            <div class="form-group" id="divNotes" style="display:none;">
-                <div class="col-md-2">
-                </div>
-                <div class="col-md-10">
-                    @Html.LabelFor(model => model.Notes, htmlAttributes: new { @class = "control-label col-md-2" })
-                    @Html.EditorFor(model => model.Notes, new { @class = "form-control", @id = "txtNotes", @rows = 10 })
-                    @Html.ValidationMessageFor(model => model.Notes, "", new { @class = "text-danger" })
+                <div class="form-group" id="divNotes" style="display:none;">
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-10">
+                        @Html.LabelFor(model => model.Notes, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.Notes, new { @class = "form-control", @id = "txtNotes", @rows = 10 })
+                        @Html.ValidationMessageFor(model => model.Notes, "", new { @class = "text-danger" })
+                    </div>
                 </div>
             </div>
             <div class="form-group">
