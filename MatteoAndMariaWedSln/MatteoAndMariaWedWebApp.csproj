@@ -372,6 +372,7 @@
     <Content Include="Views\Home\Carousel.cshtml" />
     <Content Include="Views\Dintorni\Index.cshtml" />
     <Content Include="Views\Home\ListaNozze.cshtml" />
+    <Content Include="Views\Home\Party.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
